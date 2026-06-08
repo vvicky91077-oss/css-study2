@@ -1,0 +1,29 @@
+.demoP{
+    text-align: center;
+    color:red;
+    border:1px solid red;
+    border-radius: 10px;
+    /* grid:  ; */
+}
+/* 
+浮动  float:left right
+定位 position:static/fixed/absoluted/relative
+弹性盒子 flex:
+margin  
+padding
+img :display:block/inline-block/ inline/none
+css3: 动画， 翻转
+text-aling
+font-size
+hover:
+
+z-index:999
+border
+
+
+dom documnet 
+
+
+
+
+*/
