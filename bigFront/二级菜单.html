@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .box {
+            width: 300px;
+            margin: 0 auto;
+
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .box .item {
+
+            width: 120px;
+            text-align: center;
+            border: 1px solid blue;
+            background-color: silver;
+            /* float: right; */
+            float: left;
+            margin: 10px;
+            line-height: 40px;
+        }
+        /* 亲儿子li ,.box>li*/
+        .item:hover {
+            background-color: lightblue;
+        } 
+        /* .bix>li>ul  也可以这样写 */
+        .item>ul {
+            display:none;
+            background: white;
+            color: black;
+        }
+        /* .box>li:hover ul */
+        .item:hover ul{
+            display: block;
+        }
+        /* .box>li li:hover */
+        .item li:hover{
+            color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="box">
+
+        <li class="item">视频教程
+            <ul >
+                <li>全部视频教程</li>
+                <li>全部aa教程</li>
+                <li>===程</li>
+                <li>全------程</li>
+            </ul>
+        </li>
+        <li class="item">认证考试
+            <ul>
+                <li>999</li>
+                <li>8888</li>
+                
+            </ul>
+        </li>
+    </ul>
+</body>
+
+</html>

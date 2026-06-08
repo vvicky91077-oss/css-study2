@@ -1,0 +1,170 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ul {
+    list-style: none;
+}
+.con {
+    width: 996px;
+    margin: 0 auto;
+
+}
+.header {
+    height: 110px;
+    /* background-color: white; */
+}
+.header .logo {
+    width: 265px;
+    height: 110px;
+    background: url(../Photo/logo.png) no-repeat ;
+    /* background-size: cover; */
+    background-size: 100% 100%;
+    float: left;
+}
+.header .right {
+    float: right;
+}
+.header .right ul {
+    height: 44px;
+    margin-top: 10px;
+    line-height: 44px;
+}
+.right li{
+    float: left;
+        /* border-right: 1px solid #b2c7ea; */
+
+    
+}
+.right li a {
+    border-right: 1px solid #b2c7ea;
+    padding: 0 13px;
+    font-size: 13px;
+    color:#ababab ;
+}
+.right li .last {
+    border-right: none;
+    padding-right: 0;
+}
+.right .active {
+    color: #eb6ca1;
+}
+.search {
+    float: right;
+    width: 240px;
+    height: 28px;
+    border: 1px solid #d1d1d1;
+}
+.search input {
+    border: 0;
+    outline: none;
+}
+.search .left {
+    width: 210px;
+    height: 25px;
+    float: left;
+    line-height: 28px;
+    padding-left: 14px;
+    background-color: #fff;
+    /* background-color: none; */
+
+}
+.search .searchright {
+    height: 22px;
+    width: 21px;
+    float: right;
+    background: url(../Photo/搜索图标.png) no-repeat;
+    background-size: 20px 20px;
+    margin-top: 4px;
+
+
+}
+.nav {
+    height: 53px;
+    background-color: #0c345c;
+    line-height: 53px;
+    border-top: 1px solid #657588;
+    color:white ;
+
+}
+.nav li {
+    float: left;
+    margin-right: 76px; ;
+    font-size: 16px;
+}
+.banner {
+    height: 380px;
+    background: url(../Photo/banner.png) no-repeat ;
+    /* background-size: 996px    ;  */
+    background-position: center 0;
+    background-size: 100% 100%;
+    /* background-size: contain; */
+
+}
+.list {
+    height: 213px;
+    /* background-color: skyblue; */
+    margin-top: 51px;
+    margin-bottom: 35px;
+    
+}
+.list .item {
+    width: 307px;
+    height: 213px;
+    border: 1px solid #ccc;
+    float: left;
+    margin-right: 25px;
+
+}
+.list .item p {
+    height: 47px;
+    line-height: 47px ;
+    padding-left: 28px;
+    font-size: 16px;
+    color: black;
+}
+img {
+    display: block;
+}
+.list  .itemlast {
+    margin-right: none;
+}
+.footer {
+    height: 206px;
+    /* border: 1px solid #ccc; */
+    background: url(../Photo/渐变色.png);
+    background-size: contain;
+}
+.footer ul {
+    height: 144px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-bottom:1px solid #ecebeb;
+    
+}
+.footer ul li {
+    width: 240px;
+    line-height: 28px;
+    padding-left: 30px;
+    float: left;
+    font-size: 12px;
+    color: #336699;
+}
+.footer p {
+    height: 61px;
+    line-height: 61px;
+    padding-left: 30px;
+    font-size: 12px;
+}
+.footer span {
+    color: #0096da;
+}
+a:hover {
+    background-color:orchid ;
+}
+.iabx:hover{
+    background-color: #f5f5f5;
+    opacity: 0.7;           /* 让图片变成 70% 的透明度 */
+    cursor: pointer;
+}
