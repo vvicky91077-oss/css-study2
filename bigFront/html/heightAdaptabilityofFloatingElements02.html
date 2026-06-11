@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       div::first-letter{
+        color: blueviolet;
+        font-size: 50px;
+       }
+       div::first-line {
+        background: indianred;
+       }
+       div::before{
+        content: '&&&';
+       }
+       div::after{
+        content: '......';
+       }
+    </style>
+</head>
+<body>
+    <div>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui quod impedit quia fugit voluptatum ea aperiam eum, numquam doloremque dignissimos dicta sint ex, ullam omnis aspernatur nobis rerum praesentium est.
+    </div>
+</body>
+</html>
