@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS3 Animations II</title>
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: #f0f4f8;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 60px 20px;
+            gap: 80px;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        h2 {
+            color: #94a3b8;
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: -60px;
+        }
+
+        /* ========================================
+           1. 打字机效果
+        ======================================== */
+        .typewriter {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1e293b;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 0;
+            border-right: 3px solid #6366f1;
+            animation:
+                typing 3s steps(18, end) infinite alternate,
+                blink 0.6s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to   { width: 18ch }
+        }
+
+        @keyframes blink {
+            50% { border-color: transparent }
+        }
+
+        /* ========================================
+           2. 液态 Blob 变形
+        ======================================== */
+        .blob {
+            width: 140px;
+            height: 140px;
+            background: linear-gradient(135deg, #6366f1, #ec4899);
+            animation: morph 6s ease-in-out infinite;
+            box-shadow: 0 8px 40px #6366f155;
+        }
+
+        @keyframes morph {
+            0%   { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+            25%  { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+            50%  { border-radius: 50% 60% 30% 60% / 30% 70% 60% 40%; }
+            75%  { border-radius: 70% 30% 50% 50% / 60% 40% 60% 30%; }
+            100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+        }
+
+        /* ========================================
+           3. 轨道行星
+        ======================================== */
+        .solar {
+            position: relative;
+            width: 180px;
+            height: 180px;
+        }
+
+        .sun {
+            position: absolute;
+            inset: 72px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 35%, #fde68a, #f59e0b);
+            box-shadow: 0 0 30px #f59e0b88;
+        }
+
+        .orbit {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            border: 1px dashed #cbd5e1;
+            animation: orbit-spin 3s linear infinite;
+        }
+
+        .orbit:nth-child(3) {
+            inset: 20px;
+            animation-duration: 5s;
+            animation-direction: reverse;
+        }
+
+        .planet {
+            position: absolute;
+            top: -7px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #6366f1;
+            box-shadow: 0 0 10px #6366f1;
+        }
+
+        .orbit:nth-child(3) .planet {
+            width: 10px;
+            height: 10px;
+            top: -5px;
+            background: #ec4899;
+            box-shadow: 0 0 10px #ec4899;
+        }
+
+        @keyframes orbit-spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* ========================================
+           4. 霓虹边框扫光
+        ======================================== */
+        .neon-box {
+            position: relative;
+            width: 220px;
+            height: 100px;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #1e293b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 4px;
+        }
+
+        .neon-box::before {
+            content: '';
+            position: absolute;
+            inset: -50%;
+            background: conic-gradient(
+                transparent 0deg,
+                #6366f1 60deg,
+                #ec4899 120deg,
+                #06b6d4 180deg,
+                transparent 240deg
+            );
+            animation: neon-rotate 2s linear infinite;
+        }
+
+        .neon-box::after {
+            content: '';
+            position: absolute;
+            inset: 3px;
+            background: #1e293b;
+            border-radius: 10px;
+        }
+
+        .neon-box span { position: relative; z-index: 1; }
+
+        @keyframes neon-rotate {
+            to { transform: rotate(360deg); }
+        }
+
+        /* ========================================
+           5. 弹性方块 (cubic-bezier 弹跳)
+        ======================================== */
+        .stage {
+            position: relative;
+            width: 180px;
+            height: 150px;
+        }
+
+        .stage .ground {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: #cbd5e1;
+            border-radius: 2px;
+        }
+
+        .elastic-box {
+            position: absolute;
+            bottom: 3px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            border-radius: 8px;
+            animation: elastic-bounce 1.2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+            transform-origin: bottom center;
+        }
+
+        @keyframes elastic-bounce {
+            0%   { transform: translateX(-50%) scaleY(1)    translateY(0); }
+            10%  { transform: translateX(-50%) scaleY(0.85) translateY(6px); }
+            30%  { transform: translateX(-50%) scaleY(1.1)  translateY(-80px); }
+            50%  { transform: translateX(-50%) scaleY(0.9)  translateY(0); }
+            65%  { transform: translateX(-50%) scaleY(1.05) translateY(-30px); }
+            80%  { transform: translateX(-50%) scaleY(0.95) translateY(0); }
+            90%  { transform: translateX(-50%) scaleY(1)    translateY(-10px); }
+            100% { transform: translateX(-50%) scaleY(1)    translateY(0); }
+        }
+
+        /* ========================================
+           6. 进度条填充
+        ======================================== */
+        .progress-wrap {
+            width: 280px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .progress-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .progress-label {
+            font-size: 0.8rem;
+            color: #64748b;
+            width: 50px;
+            text-align: right;
+        }
+
+        .progress-track {
+            flex: 1;
+            height: 10px;
+            background: #e2e8f0;
+            border-radius: 99px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            border-radius: 99px;
+            width: 0;
+            animation: fill 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        .progress-row:nth-child(1) .progress-bar {
+            background: linear-gradient(90deg, #6366f1, #8b5cf6);
+            animation-delay: 0.2s;
+            --target: 85%;
+        }
+        .progress-row:nth-child(2) .progress-bar {
+            background: linear-gradient(90deg, #06b6d4, #3b82f6);
+            animation-delay: 0.5s;
+            --target: 62%;
+        }
+        .progress-row:nth-child(3) .progress-bar {
+            background: linear-gradient(90deg, #10b981, #6ee7b7);
+            animation-delay: 0.8s;
+            --target: 74%;
+        }
+
+        /* CSS 变量驱动目标宽度 */
+        @keyframes fill {
+            to { width: var(--target); }
+        }
+
+        /* ========================================
+           7. 3D 旋转立方体
+        ======================================== */
+        .cube-scene {
+            perspective: 400px;
+            width: 80px;
+            height: 80px;
+        }
+
+        .cube {
+            width: 80px;
+            height: 80px;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: cube-spin 4s ease-in-out infinite;
+        }
+
+        .cube-face {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border: 2px solid #6366f188;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #fff;
+            opacity: 0.88;
+        }
+
+        .cube-face.front  { background: #6366f1cc; transform: translateZ(40px); }
+        .cube-face.back   { background: #8b5cf6cc; transform: rotateY(180deg) translateZ(40px); }
+        .cube-face.left   { background: #06b6d4cc; transform: rotateY(-90deg) translateZ(40px); }
+        .cube-face.right  { background: #ec4899cc; transform: rotateY(90deg)  translateZ(40px); }
+        .cube-face.top    { background: #f59e0bcc; transform: rotateX(90deg)  translateZ(40px); }
+        .cube-face.bottom { background: #10b981cc; transform: rotateX(-90deg) translateZ(40px); }
+
+        @keyframes cube-spin {
+            0%   { transform: rotateX(0deg)   rotateY(0deg); }
+            25%  { transform: rotateX(-20deg) rotateY(90deg); }
+            50%  { transform: rotateX(-30deg) rotateY(180deg); }
+            75%  { transform: rotateX(-20deg) rotateY(270deg); }
+            100% { transform: rotateX(0deg)   rotateY(360deg); }
+        }
+
+        /* ========== 行布局 ========== */
+        .row {
+            display: flex;
+            gap: 60px;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .cell {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. 打字机 -->
+    <div class="cell">
+        <div class="typewriter">CSS3 Animations II</div>
+        <h2>Typewriter</h2>
+    </div>
+
+    <!-- 第一行 -->
+    <div class="row">
+        <div class="cell">
+            <div class="blob"></div>
+            <h2>Liquid Blob</h2>
+        </div>
+
+        <div class="cell">
+            <div class="solar">
+                <div class="orbit"><div class="planet"></div></div>
+                <div class="orbit"><div class="planet"></div></div>
+                <div class="sun"></div>
+            </div>
+            <h2>Orbit</h2>
+        </div>
+
+        <div class="cell">
+            <div class="neon-box"><span>NEON</span></div>
+            <h2>Neon Border</h2>
+        </div>
+    </div>
+
+    <!-- 第二行 -->
+    <div class="row">
+        <div class="cell">
+            <div class="stage">
+                <div class="elastic-box"></div>
+                <div class="ground"></div>
+            </div>
+            <h2>Elastic Bounce</h2>
+        </div>
+
+        <div class="cell">
+            <div class="cube-scene">
+                <div class="cube">
+                    <div class="cube-face front">F</div>
+                    <div class="cube-face back">B</div>
+                    <div class="cube-face left">L</div>
+                    <div class="cube-face right">R</div>
+                    <div class="cube-face top">T</div>
+                    <div class="cube-face bottom">D</div>
+                </div>
+            </div>
+            <h2>3D Cube</h2>
+        </div>
+    </div>
+
+    <!-- 进度条 -->
+    <div class="cell">
+        <div class="progress-wrap">
+            <div class="progress-row">
+                <span class="progress-label">HTML</span>
+                <div class="progress-track"><div class="progress-bar"></div></div>
+            </div>
+            <div class="progress-row">
+                <span class="progress-label">CSS</span>
+                <div class="progress-track"><div class="progress-bar"></div></div>
+            </div>
+            <div class="progress-row">
+                <span class="progress-label">JS</span>
+                <div class="progress-track"><div class="progress-bar"></div></div>
+            </div>
+        </div>
+        <h2>Progress Bar</h2>
+    </div>
+
+</body>
+</html>
