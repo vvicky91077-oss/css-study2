@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .dad>li {
+            background-color: wheat;
+            border: 1px solid  blue;
+        }
+        .child+li {
+            background-color: orangered;
+        }
+        .child~li{
+            background-color: palevioletred;
+        }
+        .container+p {
+            background-color: lawngreen;
+        }
+        .container~p{
+            background-color: gold;
+        }
+    </style>
+</head>
+<body>
+    <ul class="dad">
+        <li>aaa
+            <ul>
+                <li>1111</li>
+            </ul>
+        </li>
+        <li class="child">bb</li>
+        <li>cc</li>
+        <li>dd</li>
+        <li>ee</li>
+    </ul>
+
+    <div class="container">11111111</div>
+    <p>aaaaaaaaaa</p>
+    <p>bbbbbbbbbb</p>
+    <div>
+        <p>ccccccccc</p>
+    </div>
+</body>
+</html>

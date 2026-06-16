@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input:enabled{
+            background-color: rgb(17, 120, 210);
+        }
+        input:disabled{
+            background-color:royalblue;
+        }
+        input[type=checkbox]{
+            appearance: none;
+            width: 30px;
+            height: 30px;
+            background-color: plum;
+        }
+        input:checked{
+           
+            background-color: darkorange;
+        }
+        input:focus{
+            background-color: palevioletred;
+        }
+        div::selection{
+            background-color: yellowgreen;
+            color: brown;
+        }
+    </style>
+<body>
+     <div>
+        <h1>注册页面</h1>
+        用户名<input type="text" name="name">
+        <br>
+        密码<input type="password" name="passcode" autofocus>
+        <br>
+        年龄<input type="number" disabled>
+        <br>
+        邮箱<input type="email">
+        <br>
+        选项 <input type="checkbox"  >
+    </div>
+    <div> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat laudantium aut facere. Delectus, molestias nostrum! Eius minus doloribus illo, aliquam corporis nihil fuga inventore maiores dolores quasi animi minima esse!</div>
+</body>
+</html>

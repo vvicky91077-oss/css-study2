@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        [class] {
+            background-color: indianred;
+        }
+        div[class] {
+            background-color: wheat;
+        }
+        div[class=box1]{
+            background-color: orchid;
+        }
+        div[class~=box1]{
+            background-color: rgb(60, 32, 218);
+        }
+        .p2+p{
+            background-color: darkgreen;
+        }
+        .box2~div{
+            background-color: skyblue;
+        }
+        input:enabled{
+            background-color: blanchedalmond;
+        }
+        input[type=email]{
+            background-color: indianred;
+        }
+        input[type^=n]{
+            background-color: plum;
+        }
+        input:not[name$=e]{
+            background-color: slategray;
+        }
+        input[type*=m],p[class*=p]{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1 box3">111111111111111</div>
+    <div class="box2 ">2222222222</div>
+    <div>33333333333</div>
+    <p class="p1">ppppppppp111</p>
+    <p class="p2">ppppppppppppp222</p>
+    <p>pppppppp3333</p>
+    <div>qqqqqqqqqqqqqqq</div>
+
+    <div>
+        <h1>注册页面</h1>
+        用户名<input type="text" name="name">
+        <br>
+        密码<input type="password" name="passcode">
+        <br>
+        年龄<input type="number">
+        <br>
+        邮箱<input type="email">
+        <br>
+    </div>
+    
+</body>
+</html>
