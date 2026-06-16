@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html, body {
+            height: 100%;
+        }
+        header,footer {
+            height: 50px;
+            background-color: rgb(179, 237, 245);
+            text-align: center;
+            line-height: 50px;
+        }
+        section {
+            height: calc(100% - 100px);
+            background-color: wheat;
+        }
+        nav, aside {
+            width: 100px;
+            height: 100%;
+            background-color: palegreen;
+            /* margin: 2px; */
+            float: left;
+        }
+        main {
+            width: calc(100% - 200px);
+            background-color: violet;
+            height: 100%;
+            float: left;
+            
+        }
+        .aside {
+            font-size: 12px;
+            color: blue;
+        }
+        main .article1 {
+            height: 60%;
+            border: 2px solid rebeccapurple;
+        }
+        main .article2 {
+            height: 40%;
+            border: 2px solid rgb(122, 7, 19);
+        }
+    </style>
+</head>
+<body>
+    <header>header</header>
+    <section>
+        <nav>
+            <figure>nav</figure>
+            <ul>
+                <li>111</li>
+                <li>222</li>
+                <li>333</li>
+                <li>444</li>
+                <li>555</li>
+            </ul>
+        </nav>
+        <main>
+            <article class="article1">
+                <header>头部</header>
+                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur dolorem tempora culpa dolore modi harum aliquam aspernatur, voluptatum ab quaerat enim, vitae dolorum debitis, omnis tenetur itaque ullam praesentium commodi!</p>
+                <footer>尾部</footer>
+            </article>
+            
+            <article class="article2">
+                <header>头</header>
+                <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo qui, officiis aspernatur dolor in est atque, suscipit deserunt quis distinctio enim odio veritatis? Molestias, tenetur quaerat officiis odit consectetur voluptate.</p>
+                <footer>尾</footer>
+            </article>
+            
+            
+        </main>
+        <aside>
+            <figure>aside</figure>
+            <p class="aside"> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae, pariatur adipisci quidem facilis dolorem, omnis incidunt quisquam optio maiores blanditiis modi, minus enim. Ullam voluptate beatae, cumque dicta veritatis eaque.</p>
+        </aside>
+    </section>
+    <footer>footer</footer>
+</body>
+</html>
