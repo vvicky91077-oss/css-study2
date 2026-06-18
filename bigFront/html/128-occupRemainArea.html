@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 500px;
+            height: 500px;
+            border: 5px solid #ccc;
+            display: flex;
+            flex-direction: column;
+
+        }
+        .box div {
+            /* width: 100px; */
+            height: 100px;
+        }
+        .d1,.d3{
+           /* flex: 2; */
+        
+            border: 1px dashed blue;
+        }
+        .d2{
+            flex: 1;
+            border: 1px dashed rgb(36, 118, 36);
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="d1"></div>
+        <div class="d2"></div>
+        <div class="d3"></div>
+    </div>
+</body>
+</html>

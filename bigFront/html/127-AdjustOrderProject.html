@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 500px;
+            height: 500px;
+            border: 2px solid black;
+            margin: 100px auto;
+            display: flex;
+            flex-direction: row-reverse;
+        }
+
+        .box div {
+            width: 100px;
+            
+            height: 100px;
+            border: 1px dotted red;
+            box-sizing: border-box;
+            
+        }
+        .box1{
+            order: 1;
+        }
+        .box2 {
+            order: 1;
+
+        }
+        .box5 {
+            order: -1;
+        }
+        .box4{
+            order: -2;
+        }
+    </style>
+</head>
+<body>
+     <div class="box">
+        <div class="box1">1111111</div>
+        <div class="box2">22222</div>
+        <div class="box3">333333</div>
+        <div class="box4">4444444</div>
+        <div class="box5" >555555</div>
+        
+    </div>
+</body>
+</html>

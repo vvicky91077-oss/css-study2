@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 955px;
+            height: 1420px;
+            /* background-color: yellow; */
+            /* background: #f4f5f9; */
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            height: 124px;
+            background-color: #232939;
+            display: flex;
+        }
+
+        section {
+            flex: 1;
+            background: #f4f5f9;
+        }
+
+        footer {
+            height: 128px;
+            background-color: #ccc;
+            display: flex;
+            
+        }
+
+        header div {
+            width: 124px;
+            line-height: 124px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .head_img {
+            width: 48px;
+            filter: brightness(0) invert(1) brightness(2);
+
+        }
+
+        header span {
+            flex: 1;
+            line-height: 124px;
+            font-size: 40px;
+            color: white;
+        }
+
+        .main {
+            display: flex;
+            height: 278px;
+            /* background-color: white; */
+            background-color: #232939;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .main div {
+            width: 120px;
+            height: 168px;
+            /* background-color: salmon; */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .main img {
+            width: 110px;
+            filter: brightness(0) invert(1) brightness(2);
+        }
+
+        .main span {
+            align-self: center;
+            font-size: 32px;
+            color: white;
+        }
+
+        .list {
+            display: flex;
+            flex-wrap: wrap;
+            background-color: white;
+        }
+
+        .list div {
+            width: 25%;
+            height: 208px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .list div img {
+            height: 87px;
+            /* line-height: 77px; */
+            /* justify-content: center; */
+        }
+
+        .list div span {
+            height: 61px;
+            /* color: white; */
+            text-align: center;
+            line-height: 61px;
+            font-size: 30px;
+        }
+
+        .pic {
+            margin-top: 25px;
+        }
+        footer div {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            /* border: 1px solid forestgreen; */
+            background-color: #fff;
+           
+        }
+        footer div img {
+            height: 58px;
+            
+        }
+        footer div span {
+            height: 36px;
+            /* justify-content: center; */
+            line-height: 36px;
+            text-align: center;
+            font-size: 28px;
+            color: #acadaf;
+
+        }
+        footer div:hover {
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <header>
+            <div><img src="../audio/other/menu_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="" class="head_img">
+            </div>
+            <span>账单</span>
+            <div><img src="../audio/other/add_circle_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt=""
+                    class="head_img"></div>
+            <div><img src="../audio/other/open_in_new_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt=""
+                    class="head_img"></div>
+            <div><img src="../audio/other/delete_forever_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt=""
+                    class="head_img"></div>
+        </header>
+        <section>
+            <div class="main">
+                <div>
+                    <img src="../audio/other/open_in_new_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="">
+                    <span>转发</span>
+                </div>
+                <div>
+                    <img src="../audio/other/check_box_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="">
+                    <span>打钩</span>
+                </div>
+                <div>
+                    <img src="../audio/other/menu_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="">
+                    <span>扫一扫</span>
+                </div>
+                <div>
+                    <img src="../audio/other/delete_forever_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="">
+                    <span>扫一扫</span>
+                </div>
+            </div>
+            <div class="list">
+                <div>
+                    <img src="../audio/other/borg_24dp_0000F5_FILL0_wght400_GRAD0_opsz24.svg" alt="">
+                    <span>蓝色💙</span>
+                </div>
+                <div>
+                    <img src="../audio/other/borg_24dp_0000F5_FILL0_wght400_GRAD0_opsz24.svg" alt="">
+                    <span>蓝色💙</span>
+                </div>
+                <div>
+                    <img src="../audio/other/borg_24dp_0000F5_FILL0_wght400_GRAD0_opsz24.svg" alt="">
+                    <span>蓝色💙</span>
+                </div>
+                <div>
+                    <img src="../audio/other/borg_24dp_0000F5_FILL0_wght400_GRAD0_opsz24.svg" alt="">
+                    <span>蓝色💙</span>
+                </div>
+                <div>
+                    <img src="../audio/other/captive_portal_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="">
+                    <span>灰色</span>
+                </div>
+                <div>
+                    <img src="../audio/other/multimodal_hand_eye_24dp_75FB4C_FILL0_wght400_GRAD0_opsz24.svg" alt="">
+                    <span>绿色💚</span>
+                </div>
+                <div>
+                    <img src="../audio/other/captive_portal_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="">
+                    <span>灰色</span>
+                </div>
+                <div>
+                    <img src="../audio/other/multimodal_hand_eye_24dp_75FB4C_FILL0_wght400_GRAD0_opsz24.svg" alt="">
+                    <span>绿色💚</span>
+                </div>
+                <div>
+                    <img src="../audio/other/borg_24dp_0000F5_FILL0_wght400_GRAD0_opsz24.svg" alt="">
+                    <span>蓝色💙</span>
+                </div>
+                <div>
+                    <img src="../audio/other/borg_24dp_0000F5_FILL0_wght400_GRAD0_opsz24.svg" alt="">
+                    <span>蓝色💙</span>
+                </div>
+                <div>
+                    <img src="../audio/other/borg_24dp_0000F5_FILL0_wght400_GRAD0_opsz24.svg" alt="">
+                    <span>蓝色💙</span>
+                </div>
+                <div>
+                    <img src="../audio/other/borg_24dp_0000F5_FILL0_wght400_GRAD0_opsz24.svg" alt="">
+                    <span>蓝色💙</span>
+                </div>
+
+            </div>
+            <div class="pic">
+                <img src="../Photo/new01.png" alt="">
+            </div>
+        </section>
+        <footer>
+            <div>
+                <img src="../audio/other/cube-replace-face.svg" alt="">
+                <span>Graduation</span>
+
+            </div>
+            <div>
+                <img src="../audio/other/cube-replace-face.svg" alt="">
+                <span>Graduation</span>
+            </div>
+            <div>
+                <img src="../audio/other/cube-replace-face.svg" alt="">
+                <span>Graduation</span>
+            </div>
+            <div>
+                <img src="../audio/other/cube-replace-face.svg" alt="">
+                <span>Graduation</span>
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+
+</html>
