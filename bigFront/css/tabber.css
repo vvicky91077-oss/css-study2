@@ -1,0 +1,40 @@
+.footer{
+    border: 1px solid red;
+    width: 1000px;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: 25%;
+    /* top:0;
+    bottom: 0; */
+    font-size: 40px;
+}
+.footer ul {
+    display: flex;
+    justify-content: space-around;
+}
+.footer ul {
+    list-style: none;
+}
+.footer ul  li  div {
+    display: flex;
+    flex-direction: column;
+    
+}
+.footer ul   .centerTab{
+     /* border:1px solid blue; */
+     width: 140px;
+    height:190px;
+    scale: 120%;
+    /* border-radius: 50%; */
+    margin-top: -20px;
+}
+.footer ul   .centerTab div{
+    display: flex;
+    flex-direction: column;
+}
+.footer ul   .centerTab div span {
+    width: 117px;
+    display: inline-block;
+}
