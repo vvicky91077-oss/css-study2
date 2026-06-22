@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            flex-wrap: wrap;
+            /* justify-content: space-between; */
+            align-content: start;
+        }
+
+        div {
+            width: 25%;
+            height: 100px;
+            background-color: blueviolet;
+            border: 1px dashed blue;
+            box-sizing: border-box;
+
+        }
+        @media screen and (orientation: portrait){
+            div {
+                width: 33.3333%;
+            }
+        }
+        @media screen and (orientation:landscape){
+            div {
+                width: 20%;
+            }
+        }
+        
+    </style>
+</head>
+
+<body>
+
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+
+</body>
+
+</html>
