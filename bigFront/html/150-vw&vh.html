@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html, body {
+            height: 100%;
+        }
+        html {
+            font-size: 26.67vw;
+        }
+        div {
+            width: 3.75rem;
+            height: 100px;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <!-- 100vw = 1024px 
+    1vw= 10.24px  -->
+
+    <!-- 100vw = 375px 
+    1vw=3.75px   
+    375px = 100vw 
+    1px = 0.2667 vw 
+    100px = 26.67vw -->
+
+    <!-- 375  1vw == 3.75px   
+    414  1vw == 4.14px   
+    当设计稿375px, html根字体值是原本算好px值 
+    换算到vw,vw值会在屏幕变更的时候 
+    会自动变值,当375屏幕 vw是3.75 * html的倍数
+     再*盒子的rem倍数
+     26.67*3.75*3.75=375.046875 -->
+
+    
+</body>
+</html>
