@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bx {
+            width: 600px;
+            height: 600px;
+            border:5px solid salmon;
+
+        }
+        .bx>div {
+            width: 200px;
+            height: 200px;
+            background-color: salmon;
+            border: 1px solid black;
+            box-sizing: border-box;
+        }
+        .bx div:nth-child(1){
+            transform: translate(400px);
+        }
+        .bx div:nth-child(2){
+            transform: translate(400px) rotate(45deg);
+        }
+        .bx div:nth-child(3){
+            transform: rotate(45deg) translate(400px) ;
+        }
+        .bx div:nth-child(2){
+            transform: translate(400px) scale(0.5) rotate(45deg);
+        }
+        .bx div:nth-child(3){
+            transform: scale(0.5) translate(400px) ;
+        }
+        .bx div:nth-child(2){
+            transform: rotate(45deg) scale(0.5) translate(400px)  ;
+        }
+    </style>
+</head>
+<body>
+    <div class="bx">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</body>
+</html>
