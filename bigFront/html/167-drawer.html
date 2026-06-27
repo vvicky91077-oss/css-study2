@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html, body{
+            height: 100%;
+        }
+        div {
+            width: 200px;
+            height: 100%;
+            background-color: red;
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            /* transform: translateX(-200px); */
+            transform: translateX(-100%);
+            animation: vk 2s linear ;
+            animation-fill-mode:forwards;
+            animation-direction: reverse;
+        }
+        @keyframes vk {
+            from{
+                transform: translateX(-100%);
+            }
+            to{
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

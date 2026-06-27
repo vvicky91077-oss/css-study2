@@ -170,7 +170,16 @@ h2 {
     right: 5px;
     
     transition: all 3s;
+    animation: spinInfi 2s linear 0.5s infinite ;
 }
-.box3:hover .spin {
+/* .box3:hover .spin {
     transform: rotate(360deg);
+} */
+@keyframes spinInfi {
+    from{
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }

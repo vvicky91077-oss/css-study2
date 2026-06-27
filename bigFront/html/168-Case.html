@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,body {
+            height: 100%;
+
+        }
+        .swiper {
+            width: 640px;
+            height: 300px;
+            margin: 20px auto;
+            overflow: hidden;
+        }
+        .swiper img {
+            width: 640px;
+            height: 300px;
+        }
+        .slide {
+            float: left;
+        }
+        .wrapper {
+            width: 100000px;
+            animation: swiperrun 5s linear infinite ;
+        }
+        .swiper:hover .wrapper{
+            animation-play-state: paused;
+        }
+
+        @keyframes swiperrun {
+            0%{
+                transform: translateX(0);
+            }
+            5%{
+                transform: translateX(-640px);
+            }
+            25%{
+                transform: translateX(-640px);
+            }
+            30%{
+                transform: translateX(-1280px);
+            }
+            50%{
+                transform: translateX(-1280px);
+            }
+            55%{
+                transform: translateX(-1920px);
+            }
+            75%{
+                transform: translateX(-1920px);
+            }
+            80%{
+                transform: translateX(-2560px);
+            }
+            100%{
+                transform: translateX(-2560px);
+            }
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="swiper">
+        <div class="wrapper">
+            <div class="slide"><img src="../Photo/slide1.png" alt=""></div>
+            <div class="slide"><img src="../Photo/slide4.png" alt=""></div>
+            <div class="slide"><img src="../Photo/slide2.png" alt=""></div>
+            <div class="slide"><img src="../Photo/slide3.png" alt=""></div>
+            <div class="slide"><img src="../Photo/slide1.png" alt=""></div>
+        </div>
+    </div>
+</body>
+</html>

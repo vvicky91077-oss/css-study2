@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box {
+            width: 600px;
+            height: 600px;
+            border: 3px solid black;
+            margin:10px auto;
+            transform-style: preserve-3d;
+            position: relative;
+            transform: rotateX(160deg);
+            animation: spinaround 5s linear infinite backwards;
+        }
+        .box div {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -100px;
+            margin-top: -100px;
+            text-align: center;
+            line-height: 200px;
+            font-size: 100px;
+            color: white;
+            opacity: 0.8;
+           
+            
+        }
+        @keyframes spinaround {
+            from{
+                transform: rotateY(30deg) rotateX(30deg);
+            }
+            to{
+                transform: rotateY(360deg) rotateX(360deg);
+            }
+
+        }
+        .box div:nth-child(1){
+            background: skyblue;
+            transform: translateZ(100px);
+        }
+        .box div:nth-child(2){
+            background: rgb(205, 135, 235);
+            transform: translateX(-100px) rotateY(-90deg);
+        }
+        .box div:nth-child(3){
+            background: rgb(177, 226, 140);
+            transform: translateY(-100px) rotateX(90deg);
+        }
+        .box div:nth-child(4){
+            background: rgb(218, 80, 119);
+            transform: translateY(100px) rotateX(-90deg);
+        }
+        .box div:nth-child(5){
+            background: rgb(6, 157, 87);
+            transform: translateX(100px) rotateY(90deg);
+        }
+        .box div:nth-child(6){
+            background: rgb(18, 129, 172);
+            transform: translateZ(-100px) rotateY(180deg) ;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+    </div>
+</body>
+</html>
