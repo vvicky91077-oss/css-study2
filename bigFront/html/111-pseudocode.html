@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul li:nth-child(2n){
+            background-color: aqua;
+        }
+        ul li:nth-child(odd){
+            background-color: paleturquoise;
+        }
+        ul li:nth-child(even){
+            background-color: rgb(154, 177, 21);
+        }
+        ul li:nth-child(n+5){
+            background-color: rgb(221, 70, 126);
+        }
+        ul li:nth-child(-n+5){
+            background-color: rgb(100, 225, 121);
+        }
+        div p {
+            background-color: pink;
+        }
+        div p:only-child{
+            background-color: aqua;
+        }
+        div:empty{
+            background-color: orangered;
+            width: 100px;
+            height: 50px;
+        }
+        :root, body {
+            height: 100%;
+            background-color: rgb(42, 94, 146);
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>111111111111</li>
+        <li>22222222</li>
+        <li>333333333333</li>
+        <li>444444444444</li>
+        <li>55555555555555</li>
+        <li>6663333</li>
+        <li>77444444444</li>
+        <li>8855555555555</li>
+    </ul>
+    <div>
+        <p>111111111</p>
+        <p>2222222222</p>
+    </div>
+    <div>        
+        <p>ppppppppp</p>
+    </div>
+    <div></div>
+</body>
+</html>
