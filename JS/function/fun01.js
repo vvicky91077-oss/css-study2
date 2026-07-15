@@ -18,3 +18,12 @@ function Animal(){
 }
 //  通过构造函数  new 一个实例
 let bird = new Animal()
+
+//箭头函数
+ const   testFn = ()=>{}
+
+ // 自执行函数
+(function init(){
+    console.log('自己执行的函数');
+    
+ })()
