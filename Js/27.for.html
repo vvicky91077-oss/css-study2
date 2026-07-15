@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* for (var i =1; i<=10; i++) {
+            console.log(i);
+        } */
+        
+
+        /* var sum=0
+        for (var i = 100; i >= 1; i--) {
+            sum+=i
+
+        }   document.write(sum); */
+
+
+        /* var count=0
+        for (var n=1000; n<=2000; n+=4){
+            if (n%400==0 ||  n%100!=0){
+                document.write(n + " ");
+
+                count++
+                if (count%4===0){
+                    document.write("<br>")
+                }
+            }
+        } */
+    </script>
+    <!-- <script>
+        // continue statement
+        for (var i = 1; i <= 5; i++) {
+            if (i === 3) {
+                continue;
+            } document.write(i + " ");
+        }
+
+
+        document.write("<br>")
+
+
+
+        // break statement
+         for (var i = 1; i <= 5; i++) {
+            if (i === 3) {
+                break;
+            } document.write(i + " ");
+        }
+
+    </script> -->
+
+    <script>
+      /*   var n = 178
+        var prime = true
+        for (var i = 2; i <= n/2 ; i++) {
+            if (n % i === 0) {
+                prime = false
+                break
+            }
+        }
+        if (prime) {
+            document.write(n + " is a prime number");
+        } else {
+            document.write(n + " is not a prime number");
+        }   */
+
+
+
+        for (var m =1; m<=9; m++){
+            for (var n=1; n<=9; n++){
+                document.write(" * " )
+            }
+            document.write("<br>")
+        }
+
+        document.write("<br>")
+
+        for (var m =1; m<=9; m++){
+            for (var n=1; n<=m; n++){
+                document.write(" * " )
+            }
+            document.write("<br>")
+        }
+
+        for (var m =1; m<=9; m++){
+            for (var n=1; n<=m; n++){
+                document.write("<span style=\"color:red; \"> " + m + " * " + n + " = " + (m * n) + " </span>" )
+            }
+            document.write("<br>")
+        }
+    </script>
+    <style>
+        span {
+            display: inline-block;
+            width: 100px;
+            height: 30px;
+            text-align: left;
+        }
+    </style>
+</body>
+
+</html>
