@@ -150,7 +150,53 @@
 
 
 
-    
+    <script>
+        function isPrime(n){            
+        for (var i = 2; i <= n/2 ; i++) {
+            if (n % i === 0) {
+                
+                return false
+                //break cannot be used to exit a function, 
+                // it can only be used to exit a loop.
+            }
+        }
+        // if (i > n/2) {
+        //    return true
+        // } else {
+        //     return false
+        // } 
+        // return i > n/2
+        return true
+        }
+
+        var c =0
+        for (var i =500; i<=1000; i++){
+            if (isPrime(i)){
+                document.write(i + "     ")
+                
+                c++
+                if (c%7===0){
+                    document.write("<br>")
+                }
+            }
+            
+        }
+
+        /* var b=151
+        var a = isPrime(b)
+        if (a) {
+            document.write(b + " is a prime number");
+        } else {
+            document.write(b + " is not a prime number");
+        }
+        document.write("<br>")
+        document.write("<br>") */
+
+        
+        
+
+        
+    </script>
 
 </body>
 
