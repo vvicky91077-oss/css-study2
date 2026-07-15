@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        var obj={
+        name : " John",
+        age : 30,
+        gender : 'male',
+        'a+b': 1111
+        
+    }
+    console.log(obj['a+b'])
+    console.log(obj)
+    console.log(obj.name)
+    console.log(obj.age)
+    console.log(obj.gender)
+
+    var obj2 = {}
+    console.log(obj2)
+
+    </script>
+    <script>
+
+        var obj3 = new Object()
+        obj3.name = 'hin'
+        obj3.age =20
+        obj3.gender = "female"
+        console.log(obj3)
+        console.log(obj3.name)
+        console.log(obj3.age)
+        console.log(obj3.gender)
+
+    </script>
+
+    <script>
+        var a = {}
+        a.name = 'John'
+        a.age = 30
+        a.gender = 'male'
+        document.write(a.name + ", " + a.age + ", " + a.gender)
+
+        a.name = 'Jane'
+        document.write("<br>" + a.name )
+
+        delete a.age
+        document.write("<br>" + a.age)
+
+        
+        var b = {}
+        b['name'] = 'John'
+        b['age'] = 30
+        document.write("<br>" + b['name'] + ", " + b['age'])
+
+        delete b['age']
+        document.write("<br>" + b['age'])
+
+        b['a+b'] = 1111
+        document.write("<br>" + b['a+b'])
+
+        b['age'] = 40
+        document.write("<br>" + b['age'])
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         var n=50
+
+         function one (){
+            // var n=40
+
+            function two (){
+                // var n=800
+                n=1000
+                console.log(n)
+            }
+            console.log("before",n)
+            two()
+            console.log("after",n)
+         }
+         one()
+
+
+         function task1 (a,b){
+            return a+b
+         }
+         var result=task1(10,20)
+         console.log(result)
+
+
+         var res
+         function  task2(a,b){
+            res= a+b
+         }
+         task2(5,4)
+         console.log(res)
+    </script>
+    <script>
+        // one()
+        // var n=100
+        // one ()
+        // two() // This will throw an error because two() is not defined in this scope
+    </script>
+</body>
+</html>
