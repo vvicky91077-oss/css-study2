@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box"></div>
+    
+</body>
+<script>
+    var currentDate = new Date()
+    var targetDate = new Date("2026/11/11")
+
+    console.log(currentDate, targetDate)
+    console.log(targetDate - currentDate)
+
+    function diffTime (current, target){
+        var value = Math.floor(target - current)/1000 //get minutes
+        console.log(value)
+        
+        var day = parseInt(value/(24*60*60)) //get day
+        var hours = parseInt(value%(60*6024)/(60*60))
+        var minutes = parseInt(value%(60*60)/60)
+        var seconds = parseInt(value%60)
+
+        var obj={
+            day:day,
+            hours:hours,
+            minutes:minutes,
+            seconds:seconds,
+        }
+            
+        return obj
+    }
+    // var a= diffTime(currentDate,targetDate)
+    // console.log(a)
+    // document.write(`双十一倒计时⏳ ${a.day}天 ${a.hours}小时${a.minutes}分钟${a.seconds}秒`)
+                
+    /* setInterval(function(){
+        var currentDate = new Date()
+
+        var a= diffTime(currentDate,targetDate)
+        console.log(a)
+        document.write(`双十一倒计时⏳ ${a.day}天 ${a.hours}小时${a.minutes}分钟${a.seconds}秒`)
+        document.write('<br>')
+    },1000) */
+
+
+     setInterval(function(){
+        var currentDate = new Date()
+        var a= diffTime(currentDate,targetDate)
+        // console.log(a)
+
+        box.innerHTML = `双十一倒计时⏳ ${a.day}天 ${a.hours}小时${a.minutes}分钟${a.seconds}秒`
+        
+    },1000)
+
+
+
+</script>
+</html>

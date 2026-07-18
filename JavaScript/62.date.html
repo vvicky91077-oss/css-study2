@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var time = new Date()
+        console.log(time)
+        console.log(typeof time)
+
+        var t = new Date(1000)
+        console.log(t)
+        
+        var t1 = new Date(2025,10,5,10,50,2)
+        var t2 = new Date("2023-11-30 08:00:06")
+        var t3 = new Date("2023/11/30 08:00:06")
+        var t4 = new Date("2023年05月03日") //invalid
+
+        console.log(t1)
+        console.log(t3)
+        console.log(t2)
+        console.log(t4)
+        console.log("---------------------------")
+
+
+    </script>
+    <script>
+        var tt= new Date
+        console.log(tt)
+        console.log(tt.getFullYear())
+        console.log(tt.getMonth())
+        console.log(tt.getDate())
+        console.log(tt.getHours())
+        console.log(tt.getMinutes())
+        console.log(tt.getSeconds())
+        console.log(tt.getMilliseconds())
+        console.log(tt.getDay())
+        console.log(tt.getTimezoneOffset())
+        console.log(tt.getTime())
+
+
+        //set 
+        
+        console.log(tt.setFullYear(2005))
+        console.log(tt.setMonth(5))
+        console.log(tt.setDate(25))
+        console.log(tt.setHours(20))
+        console.log(tt.setMinutes(25))
+        console.log(tt.setTime(2005))
+
+        var t0t= new Date(1119705937306)
+        console.log(t0t)
+        console.log("---------------------------")
+
+    </script>
+   
+</head>
+<body>
+    
+    <button id="btn1">定时器停止按钮</button>
+    <button id="btn2">间隔器停止按钮</button>
+    
+    
+</body>
+ <script>
+
+        var v1 = setTimeout(function(){
+            console.log("aaaaaaaa")
+        },2000)//定时器
+
+        var v2 = setInterval(function(){
+            console.log("bbbb")
+        },1000)//间隔定时器
+
+        console.log (v1,v2)
+
+
+        var btn1 = document.getElementById("btn1")
+        var btn2 = document.getElementById("btn2")
+        console.log(btn1,btn2)
+
+        btn1.onclick = function(){
+            console.log("btn1 click")
+            clearTimeout(v1)
+        }
+
+        btn2.onclick = function(){
+            console.log("btn2 click")
+            clearInterval(v2)
+        }
+
+
+
+        console.log("--------------")
+
+        setTimeout(function(){
+            console.log("d")
+        },1000)
+
+        console.log("-****************")
+        // console.log("----------------------------")
+
+    </script>
+    <script>
+    console.log("----------------------------")
+
+
+    </script>
+</html>

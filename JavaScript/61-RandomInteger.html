@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //0-10 不包含10
+        var res= Math.floor(Math.random()*10)
+        console.log(res)
+        //包含10
+        var a= Math.floor(Math.random()*(10+1))
+        console.log(a)
+
+        //10-20
+         var res1= Math.floor(Math.random()*10)+10
+        console.log(res1)
+        //包含20
+         var res2= Math.floor(Math.random()*10+1)+10
+        console.log(res2)
+
+
+        function ranDom(max , min){
+            if (min>max){
+                console.error("something went wrong")
+            }
+            return Math.floor(Math.random()*(max- min))+min
+        }
+        console.log(ranDom(90,70))
+
+
+         function ranDom1(max , min){
+            if (min>max){
+                console.error("something went wrong")
+            }
+            return Math.floor(Math.random()*(max- min+1))+min
+        }
+        console.log(ranDom1(5,3))
+    </script>
+</body>
+</html>
