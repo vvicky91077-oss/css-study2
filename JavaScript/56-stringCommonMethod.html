@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //charAt
+        var a= 'hello world 你好'
+        var a1 = a.charAt(12)
+        console.log(a,a1)
+
+        //charCodeAt
+        var a2= a.charCodeAt(13)
+        console.log(a2,a.charCodeAt(12),a.charCodeAt(0),a.charCodeAt(1))
+
+        //String.fromCharCode
+        var b=[]
+        for (var i = 60; i<99; i++){
+            // var s=[(String.fromCharCode(i))]
+            b.push(String.fromCharCode(i))
+            
+        }console.log(b)
+        
+        //toUpperCase and toLowerCase
+
+        var a3 = 'hello World 一二 你好'
+        console.log (a3.toLowerCase())
+        console.log (a3.toUpperCase())
+        console.log (a3.toLocaleLowerCase())
+        console.log (a3.toLocaleUpperCase())
+        console.log (a3.substr(0,2))
+        console.log (a3.substr(1))
+        console.log (a3.substring(0,3))
+        console.log (a3.substring(0))
+        console.log (a3.slice(0,5))
+        console.log (a3.slice(0))
+        console.log(a3.slice(0,1).toUpperCase()
+                    +a3.substr(1).toLowerCase())
+        console.log(a3.replace('he','*'))
+        console.log(a3.replace('W','*'))
+        
+        var a4= '1,rdf,9685,74,sd'       
+        console.log(a4.split(",")) 
+        var a5= "a|b|c/2"
+        console.log(a5.split(/[|/]/))
+        var a5= "a|b|c/2*5"
+        console.log(a5.split(/[|/*]/))
+
+        console.log(a3.indexOf("o",5))
+        console.log(a3.indexOf("l",3))
+        console.log(a3.lastIndexOf("l",10))
+        console.log(a3.concat('aaaaaa'))
+        var q= a3+ '---------'
+        console.log(q)
+
+
+        var a20 = '  hello World 一二 你好     '
+        
+        console.log("|"+a20.trimStart()+"|")
+        console.log("|"+a20.trimEnd()+"|")
+        console.log("|"+a20.trimLeft()+"|")
+        console.log("|"+a20.trimRight()+"|")
+        
+    </script>
+</body>
+</html>

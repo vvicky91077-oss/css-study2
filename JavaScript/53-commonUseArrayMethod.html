@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    //forEach遍历
+    var a0= ['ssss','sdfewf',8754,45,7,7,7,'ssss','asf']
+    var a1=a0.forEach(function(item,index){
+        console.log(index+' '+item+" = "+a0)
+        
+    })
+    console.log("..................................................")
+
+    //map映射
+    var a2=a0.map(function(item){
+        return '<li>'+item+'</li>'
+    
+    })
+    var a3=a2.join(" ")
+    console.log(a2)
+    console.log(a3)
+    document.write(a3)
+    console.log("..................................................")
+
+
+    //filter 过滤
+    
+    var a5 = a0.filter(function(item, index){
+        
+            return item==='ssss'
+        }
+    )
+    console.log(a5)
+
+    var a6= [
+        {
+            name:'aaa',
+            age:55
+        },
+        {
+            name: 'bb',
+            age: 20
+        }
+    ]
+    var a7 = a6.filter(function(item){
+        return item.age>20
+    })
+    console.log (a7)
+    console.log("..................................................")
+
+
+
+    //every 每一个
+    var a8=[5,5,85,8,85,85,5,8,8,5,7,6]
+    var a9= a8.every(function(item){
+        return item>50
+    })
+    if (a9=== true){
+        console.log("PASS")
+    }else{
+        console.log("Fail---")
+
+    }
+    console.log(a9)
+
+
+    //some 只要一个
+    var a10 = a8.some(function(item){
+        return item>60
+    })
+    if (a10=== true){
+        console.log("PASS")
+    }else{
+        console.log("Fail---")
+
+    }
+    console.log(a10)
+
+
+    //find 查找，像Excel一样 只会给你显示一个
+    var a11= a8.find(function(item, index){
+        return item===8
+    })
+    console.log(a11)
+
+
+    //reduce 叠加
+    var a12 = a8.reduce(function(prev,item){
+        return prev+item
+    },0)
+    console.log(a12)
+    console.log("..................................................")
+
+
+    
+</script>
+<body>
+    
+</body>
+</html>

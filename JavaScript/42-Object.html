@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -65,6 +65,46 @@
 
         b['age'] = 40
         document.write("<br>" + b['age'])
+    </script>
+    <script>
+        var obj0={
+            name : " John",
+            age : 30,
+            gender : 'male',
+            height : 158,
+            religion: 'buddha'
+        }
+        document.write("<br>")
+        for(var k in obj0){
+            // console.log (k)
+            // document.write(k+ "  "+"<br>")
+            document.write (k+ obj0 [k])
+            
+        }
+    </script>
+
+    <script>
+        console.log("---------------------")
+
+        var b = {
+            name: "uiki",
+            age: 88
+        }
+
+        var c= {}
+
+        for (var i in b){
+            // console.log(i)
+            // console.log(i + " "+ b[i])
+
+            c[i]=b[i]
+            console.log(i+ c[i])
+
+            
+        }
+        c.name="铁锤"
+        console.log (c[i])
+        console.log (b,c)
     </script>
 </body>
 </html>
