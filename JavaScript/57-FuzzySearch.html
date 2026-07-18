@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <script>
+      /* var aa = ['abc','apple','awosome','awful','absolute','filll']
+    
+      var cc = prompt("please input and search")
+      var bb = aa.filter(function(item){
+        return item.indexOf(cc)>-1
+      })
+      console.log(bb); */
+      
+   </script>
+   <script>
+    //JSON 格式
+
+    var i= '{"name":"mamg","age":10}'
+    console.log(i)
+    var i1= JSON.parse(i)
+    console.log (i1)
+
+    var i2= JSON.stringify(i1)
+    console.log(i2)
+    console.log ('---------------------------------------------')
+   </script>
+
+   <script>
+    //es6 ``
+    var abc = "<ul><li>111</li>\
+                <li>222</li>\
+                <li>333</li></ul>"
+    var va= `<ul><li>***</li>
+                <li>++++</li>
+                <li>----</li></ul>`
+    console.log (abc)
+    document.write(abc)
+    document.write(va)
+
+
+    var ii= 100
+    var i0= 3
+    var i1= 9
+    console.log (`my age is ${ii} years old. 
+                I am older than my sister for ${i1-i0} years.
+                ${i0===i1? 'we are twin' : 'she is younger than me.'}`)
+
+
+
+    var arrr= ['aaaa','opp','4esd','sd']
+    var a22= arrr.map(function(item      
+    ){
+        return `<ul><li>${item}</li></ul>`
+    })
+
+    console.log (a22)
+    document.write(a22.join(" "))
+   </script>
+</body>
+</html>

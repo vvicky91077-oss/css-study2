@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //字符串基本操作
+        var a = 'hello world'
+        console.log(a)
+
+        var b= new String("hello world")
+        console.log(b)
+
+        console.log(a.length,b.length)
+        a.length=0 //无法赋值 修改
+        console.log(a.length,b.length)
+
+        a[1]='a'//无法改变
+        console.log(a[7])
+
+        for (var i =0;i<a.length; i++){
+            console.log(i, a[i])
+        }
+        console.log('************************************')
+    </script>
+    <script>
+        //统计字符出现次数
+        var m = 'abcdabababcd'
+
+        var obj={}
+        for (var i =0;i<m.length;i++){
+            console.log(m[i])
+            var key = m[i]
+
+            if (obj[key]){
+                obj[key]++
+            }else{
+                obj[key]=1
+            }
+        }
+        console.log(obj)
+        console.log('************************************')
+
+    </script>
+</body>
+</html>

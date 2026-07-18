@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var ageArr = [20, 60, 55, 18, 15, 50, 64, 72]
+        var nameArr = ['aye', 'phue', 'bb']
+        var studentArr = [{
+            name: 'abc', age: 50
+        }, { name: 'efg', age: 45 }]
+        console.log(ageArr)
+        console.log(nameArr)
+        console.log(studentArr)
+
+
+        var ar1 = new Array(1, 2, 3, 4)
+
+        var ar2 = new Array(50)
+
+        console.log(ar1)
+        console.log(ar2)
+        console.log("--------------------------------")
+    </script>
+    <script>
+        var b1 = [1, 2, 3, 4, 5]
+        console.log(b1.length)
+        console.log(b1[1])
+        b1.length = 3
+        console.log(b1)
+
+        //清空数组
+        b1.length = 0
+        console.log(b1)
+
+        //索引 index
+        var b2 = ['kerwin', 'uiki', 'lili']
+        console.log(b2[0], b2[2])
+        b2[1] = 'viki'
+        console.log(b2[1])
+        console.log(b2)
+        b2[2] = ''
+        b2[4] = 100
+        console.log(b2)
+        console.log("--------------------------------")
+
+
+        //遍历
+        var b3 = [5, 8, 50, 40, 6]
+
+        var b4 = b3
+        console.log(b3, b4)
+        b4[3] = 'abcde'
+        console.log(b3, b4) //两个值都变
+
+        var b5 = []
+        for (var i = 0; i < b4.length; i++) {
+            b5[i] = b4[i]
+
+        } console.log(b5)
+        b5[3] = 'aaaaaaa'
+        console.log(b5, b4)
+
+        console.log("--------------------------------")
+
+
+    </script>
+    <script>
+        //sort 排序
+        var a1 = [4, 3]
+        // var temp =a1[0]
+        // a1[0]=a1[1]
+        // a1[1]= temp
+        // console.log(a1)
+
+
+
+
+        for (var i = 0; i < a1.length; i++) {
+            if (a1[0] > a1[1]) {
+                temp = a1[0]
+                a1[0] = a1[1]
+                a1[1] = temp
+            }
+        } console.log(a1)
+
+
+
+
+        var a2 = [5, 70, 1, 55, 1546, 21, 3, 40, 4, 500, 99, 55, 44]
+        for (var m = 0; m < a2.length - 1; m++) {
+            for (var i = 0; i < a2.length - 1 - m; i++) {
+                if (a2[i] > a2[i + 1]) {
+                    temp = a2[i]
+                    a2[i] = a2[i + 1]
+                    a2[i + 1] = temp
+                }
+
+            }
+        }
+
+        console.log(a2)
+
+        console.log("--------------------------------------")
+    </script>
+    <script>
+        var arry = [4, 3, 2, 1]
+        var min = 0
+
+        for (var i = 1; i < arry.length; i++) {
+            if (arry[i] < arry[min]) {
+                min = i
+            }
+            var t = arry[0]
+            arry[0] = arry[min]
+            arry[min] = t
+
+        }
+
+        console.log(arry)
+
+       
+        var min=1
+
+        for (var i = 2; i < arry.length; i++) {
+            if (arry[i] < arry[min]) {
+                min = i
+            }
+            var t = arry[1]
+            arry[1] = arry[min]
+            arry[min] = t
+
+        }
+
+        console.log(arry)
+
+
+
+         var min=3
+
+        for (var i = 3; i < arry.length; i++) {
+            if (arry[i] < arry[min]) {
+                min = i
+            }
+            var t = arry[2]
+            arry[2] = arry[min]
+            arry[min] = t
+
+        }
+
+        console.log(arry)
+        console.log("----------------------------------------------")
+
+
+        var x= [400,50,41,22,7,30,555,81,0,20,11,111]
+        var min=0
+
+        for (var m=0 ; m<x.length; m++){
+            for (var o=m+1;o<x.length;o++){
+                if (x[o] < x[min]){
+                    min=o
+                }
+            }
+            var tempo= x[m]
+                x[m]= x[min]
+                x[min]=tempo
+        }
+        console.log(x)
+        console.log("--------------------------------------------------")
+
+    </script>
+    <script>
+        var p = [4,8,20,5,9,1000]
+
+        var aa=p.push('aaaa',88,'b0b') //最后面增加
+        console.log(p)
+        console.log(aa) //打印的是数量
+
+
+        var bb=p.pop() //从最后面删除1个数据
+        console.log(p)
+        console.log(bb) //显示被删的值
+
+        var cc= p.unshift('one',2,'three') //从最前面加
+        console.log(p)
+        console.log(cc) //打印的是数量
+
+        var dd= p.shift() //从最前面删
+        console.log(p)
+        console.log(dd) //显示被删的值
+
+        var ee= p.splice(1,1)// 从1下标删除1个
+        console.log(p)
+        console.log(ee)
+
+        var ee= p.splice(1,1,555,666,777)
+        var ff= p.splice( 4,0,8888)
+        console.log(p)
+        console.log(ff)
+
+
+        var gg= p.sort(
+            function abc(a,b){
+                return a-b
+            }
+        )
+        console.log(p)
+        console.log(gg)
+
+
+
+         var hh= p.sort(
+            function abc(a,b){
+                return b-a
+            }
+        )
+        console.log(p)
+        console.log(hh)
+
+        console.log("------------------------------------------------------------------------------")
+
+    </script>
+</body>
+    <script>
+        //concat 拼接
+        var y1=[1,5,6]
+        var y2=[8,4,2]
+        var y3= y1.concat(y2)
+        console.log(y1,y2)
+
+        var y4= y2.concat(y1,7,9,'aaaa')
+        console.log(y3, y4)
+
+        var y5 = y2.concat()
+        y5[2]='oooo'
+        y5.pop()
+        console.log(y2,y5)
+        console.log("------------------------------------------------------------------------------")
+
+
+        //join
+        var z0= [5,8,6,4,2,5,8,5,]
+        document.write(z0.join('  |  '))
+        document.write("<br>")
+
+
+        var z1=[]
+        for (var i=0; i<7;i++){
+            z1.push("<li>"+ i +"</li>")
+
+        }
+        console.log(z1)
+        document.write(z1.join(" "))
+        console.log("------------------------------------------------------------------------------")
+
+
+        //slice
+        var q0= [8,'lll',8,9,0,'pp']
+        var q1= q0.slice(2,5)
+        console.log(q1, q0)
+        var q2= q0.slice(2)
+        console.log(q2)
+        var q3= q0.slice(-1)
+        console.log(q3)
+        var q4= q0.slice(0,-1)
+        console.log(q4)
+
+        var q5= q0.slice()
+        q5[1]='aaaaaaaaaaaaaaaaa'
+        q5.shift()
+        q5.unshift(1,'iii')
+        q5.push (8,9,5)
+        q5.pop()
+        console.log (q0, q5)
+        console.log("------------------------------------------------------------------------------")
+        
+
+
+        //indexOf
+        var e1 = [8,'rrr',9,'uki',98,65,8,9,,100]
+
+        var result1= e1.indexOf("rrr")
+        var re= e1.indexOf('p')
+        var rrr= e1.indexOf(8,1)
+        var rr= e1.indexOf(9)
+        console.log(result1, re,rrr,rr)
+        console.log("------------------------------------------------------------------------------")
+
+
+        //lastindenOf
+        var n1=[8,6,7,1,0,1,8,100]
+        var n2= n1.lastIndexOf(8)
+        var n3= n1.lastIndexOf(8,5)
+        console.log(n2,n3)
+        console.log("------------------------------------------------------------------------------")
+
+    </script>
+    <script>
+        //1-方法 去重
+
+        var ff= [0,0,5,8.6,9,1,99,2,0,99]
+        var fa= []
+
+        for (var s=0; s<ff.length;s++){
+            if (fa.indexOf(ff[s])===-1){
+                fa.push(ff[s])
+            }
+        }
+        console.log(ff,fa) //不排序只是去重
+
+
+
+        //2-对象去重
+        var fc= {}
+        for(var i=0;i<ff.length;i++){
+            fc[ff[i]]="aaaaa"
+        }
+        console.log(fc)
+
+        var fx=[]
+        for (var i in fc){
+            fx.push(i-0)
+        }
+        console.log (fx)
+
+
+        //set去重复
+        var setone= new Set(ff)
+        console.log(setone)
+        
+        var arrayone= Array.from(setone)
+        console.log (arrayone)
+        console.log("------------------------------------------------------------------------------")
+
+    </script>
+</html>
