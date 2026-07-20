@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        name : <input type="text" id="username"> 
+    </div>
+    <br>
+    <div>
+        password : <input type="password" id="password">
+    </div>
+    <br>
+
+    <div>
+        <button id = save>
+            login
+
+        </button>
+    </div>
+
+</body>
+<script>
+
+   
+    save.onclick = function(){
+        // console.log(username.value,password.value)
+        localStorage.setItem("name",username.value)
+        localStorage.setItem("password",password.value)
+
+    }
+    
+    var name = localStorage.getItem("name")
+    var pas = localStorage.getItem("password")
+    username.value= name
+    password.value= pas
+    
+</script>
+</html>

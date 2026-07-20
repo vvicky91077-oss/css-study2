@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="checkbox" id="allbox">
+    <br>
+    <ul class="ul">
+        <li>
+            <input type="checkbox">
+            gersd
+        </li>
+        <li>
+            <input type="checkbox">
+            esvd
+        </li>
+        <li>
+            <input type="checkbox">
+            4186685
+        </li>
+        <li>
+            <input type="checkbox">
+            ------------
+        </li>
+        <li>
+            <input type="checkbox">
+            ************
+        </li>
+    </ul>
+</body>
+<script>
+    var oAll= document.getElementById("allbox")
+    var obb= document.querySelectorAll(".ul li input")
+
+    console.log(oAll,obb)
+
+    oAll.onclick = function(){
+        for (var i =0; i <obb.length; i++){
+            obb[i].checked= oAll.checked
+        }
+    }
+
+    for ( var i =0; i< obb.length; i++){
+
+        obb[i].onclick= function(){
+            var count=0
+
+            for (var i =0 ; i <obb.length;i++){
+                if (obb[i].checked) count++
+                
+            }
+            if (count===obb.length){
+                oAll.checked=true
+            }else {
+                oAll.checked= false
+
+            }
+        }
+    }
+   
+
+</script>
+</html>

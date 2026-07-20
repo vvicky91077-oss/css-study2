@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id = kk>
+        我是div大哥
+    </div>
+    <div name="ii"></div>
+    <input type="text" name="input">
+    <img src="" alt="" id = pic>
+    <ul>
+        <li class="news">1</li>
+        <li class="news">5</li>
+        <li class="news">3</li>
+        <li class="news">8</li>
+        <li class="news">875</li>
+        <li class="news">542</li>
+        <li class="news">12</li>
+    </ul>
+</body>
+<script>
+    console.log(document.documentElement) //html
+    console.log(document.head)  //head
+    console.log(document.body) //body
+    console.log (document.ul) // 标签不能这样获取
+    console.log(document.li) // 标签不能这样获取
+
+   
+
+
+    console.log(document.getElementById("kk"))
+    var kok= document.getElementById("kk")
+    kok.innerHTML="我是 小弟弟"  //修改 覆盖内容
+
+
+
+
+
+    console.log(document.getElementsByClassName("news"))
+    var abc = document.getElementsByClassName("news")
+    abc[3].innerHTML= "***********"
+
+    for (var i=0 ; i<abc.length;  i++){
+        abc[i].innerHTML= "新闻"+ i
+    }
+
+    //set --> Array.from 
+
+    var newabc= Array.from(abc)
+    console.log (newabc)
+
+
+
+
+
+
+
+    var a0= document.getElementsByTagName("li")
+    console.log(a0)
+    console.log(document.getElementsByTagName("div"))
+    console.log(document.getElementsByTagName("body"))
+    console.log(document.getElementsByTagName("head"))
+
+
+
+
+
+
+    var i= document.getElementsByName("input")
+    i[0].value= "abccccc"
+    console.log(document.getElementsByName("input"))
+
+
+
+    var u = document.querySelector("li") //只拿到第一个
+    console.log(u)
+
+    var V = document.querySelectorAll("li") 
+    V[6].innerHTML= "++++++++++++++++"
+    console.log(V)
+
+    var aa= document.querySelectorAll("#pic")
+    console.log (aa)
+</script>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            width: 2000px;
+            height: 2000px;
+        }
+    </style>
+</head>
+<script>
+    window.onscroll = function () {
+        var top = document.documentElement.scrollTop || document.body.scrollTop
+        var left = document.documentElement.scrollLeft || document.body.scrollLeft
+
+        console.log("top: " + top)
+        console.log("left: " + left)
+
+        if (top > 100) {
+            console.log("显示回到main")
+        } else {
+            console.log("隐藏main")
+        }
+
+        if (left > 100) {
+            console.log("show something")
+        } else {
+            console.log("hide something")
+        }
+    }
+
+
+</script>
+
+<body>
+    <div style="width: 500px;height: 100px;;"></div>
+    <button id="ab">返回顶部</button>
+    <button id=ll>打开新页面</button>
+    <button id="close"> closeMyself</button>
+</body>
+<script>
+    ab.onclick = function () {
+        window.scrollTo(0, 0)
+        window.scrollTo({
+            left: 10,
+            top: 10,
+        })
+    }
+    ll.onclick = function () {
+        window.open("https://www.youtube.com/")
+    }
+    close.onclick = function () {
+        window.close()
+    }
+</script>
+
+</html>

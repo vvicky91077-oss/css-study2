@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            /* width: 2000px; */
+            height: 2000px;
+        }
+    </style>
+</head>
+<script>
+    window.onload= function(){
+        console.log("加载完成")
+        console.log (111)
+    }
+
+    window.onresize = function (){
+        console.log ("大小有变动啊")
+    }
+
+    window.onscroll = function(){
+        console.log ("滚动地址")
+    }
+</script>
+<body>
+    <script>
+        // console.log(window.innerHeight, innerHeight)
+        // console.log(window.innerWidth, innerWidth)
+    </script>
+    <button id="btn">click</button>
+    <button id =btn1>跳转</button>
+    <button id="btn2">刷新</button>
+    <button id="111">111</button>
+    <button id="back">返回🔙</button>
+</body>
+<script>
+    btn.onclick = function(){
+        setTimeout(function()  {
+            alert ("成功")
+        }, 2000);
+
+        console.log ("846518654865")
+    }
+
+     btn.onclick = function(){
+        var a= confirm(" 确定吗")
+        console.log(a)
+     }
+
+      btn.onclick = function(){
+        var b= prompt(" 请输入")
+         console.log(b)
+     }
+
+</script>
+<script>
+    console.log(window.location.href) 
+
+    btn1.onclick = function(){
+        location.href = "https://www.youtube.com/"
+    }
+
+
+    //reload
+    btn2.onclick=function(){
+        location.reload()
+    }
+
+    back.onclick=function(){
+        location.href="01.html"
+        // history.back()
+    }
+</script>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn0">add</button>
+    <button id="btn1">get</button>
+    <button id="btn2">change</button>
+    <button id="btn3">delete</button>
+</body>
+<script>
+    btn0.onclick=function(){
+        sessionStorage.setItem("name","b")
+        sessionStorage.setItem("id","005")
+        sessionStorage.setItem("age","100")
+        sessionStorage.setItem("obj",JSON.stringify({name: "abc",age: 25}))
+    }
+    btn1.onclick=function(){
+        console.log(sessionStorage.getItem("name"))
+        console.log(sessionStorage.getItem("id"))
+        console.log(sessionStorage.getItem("age"))
+        console.log(JSON.parse(sessionStorage.getItem("obj")))
+    }
+    btn2.onclick=function(){
+        sessionStorage.setItem("age","55")
+
+    }
+    btn3.onclick=function(){
+        sessionStorage.removeItem("id")
+    }
+    
+</script>
+</html>

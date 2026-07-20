@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+            
+
+        }
+
+        li {
+            overflow: hidden;
+            padding: 10px;
+        }
+
+        li img {
+            float: left;
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="aaa">
+        <!-- <li>
+            <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRplZq-RCPEt1NWJh1NS8BiUdEO54PP3twYVCkS_AJmg&s=10">
+
+            <h3>霸王别姬</h3>
+            <p>7.8</p>
+        </li> -->
+    </ul>
+</body>
+<script>
+    var daArray = [
+        {
+            url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1U4IQGhbM8l_T11xSZ_WFr3DRSVNelh_-PMRIIckhCg&s=10",
+            title: "浪小妖怪",
+            grade: 8.0
+        },
+        {
+            url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT42ucdgy9-x9MIoJ9AvjogIUObOPYVY5ymap0Gfy1f1Q&s",
+            title: "好看的电影",
+            grade: 5.5
+        },
+        {
+            url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKGi3fW3WvuidAcP-iEzLfYw-jMcftRxLqopX1Rrj3fw&s",
+            title: "movie",
+            grade: 9
+
+        }
+    ]
+
+    //先按照自己想要的方式接收
+    var dataArray = daArray.map(function (item) {
+        return `<li>
+                <img src="${item.url}">
+
+                <h3>${item.title}</h3>
+                <p>${item.grade}</p>
+        </li>`
+
+    })
+    //把接收的数组 转成字符串
+    console.log(dataArray.join(""))
+
+    //找到要放到的 节点位置
+    var showTime= document.getElementById("aaa")
+
+    //利用能解析标签的 innnerHtml 加进去
+    showTime.innerHTML= dataArray.join("")
+</script>
+
+</html>
