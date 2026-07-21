@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>............</div>
+    <div id="dad" abc="1" bcd="2">
+        kerwin
+        <p id = one>1111111111</p>
+        <!-- 我 是注释 -->
+         <span id = two>222222222222</span>
+    </div>
+    <div id="dd">777<p>7</p><!-- 我 是注释 -->
+    </div>
+</body>
+<script>
+    console.log(dad.childNodes)
+    console.log(dd.childNodes)
+    console.log(dad.children)
+    console.log(dad.firstChild)
+    console.log(dad.firstElementChild)
+    console.log(dad.lastChild)
+    console.log(dad.lastElementChild)
+    console.log(dad.previousSibling)
+    console.log(dad.previousElementSibling)
+    dad.previousElementSibling.innerHTML = "************"
+    console.log(dad.nextSibling)
+    console.log(dad.nextElementSibling)
+    console.log(dad.parentNode.parentNode.parentNode)
+    console.log(one.parentNode)
+    console.log(two.parentElement)
+    console.log(dad.parentElement.parentElement)
+    console.log(dad.attributes)
+    // console.log(dad.getAttributes)
+    console.log(dad.attributes[2])
+    
+</script>
+</html>

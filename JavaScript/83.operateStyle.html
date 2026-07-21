@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #cc{
+            height: 300px;
+            color: yellow;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="cc" style="width: 300px;background-color: salmon;">
+        11111111111111
+    </div>
+</body>
+<script>
+    console.log(cc.style.width, cc.style.backgroundColor)
+    console.log(cc.height) //访问不到
+    cc.style.width= "500px"
+    cc.style.backgroundColor="blue" //也可以赋值
+
+
+
+    //读取所有 style
+    console.log(window.getComputedStyle(cc))
+
+    var box= document.getElementById("cc")
+    console.log(window.getComputedStyle(box))
+    var res= window.getComputedStyle(box).height
+    var ress= window.getComputedStyle(box).color
+    var re= window.getComputedStyle(box).width
+    console.log(res, ress, re)
+
+    // getComputedStyle(box).height= "10px"  //无法修改赋值
+</script>
+</html>

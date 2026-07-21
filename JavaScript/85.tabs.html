@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            display: flex;
+            list-style: none;
+        }
+        li{
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            flex: 1;
+        }
+
+        .active{
+            color:red;
+            border-bottom: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li id="one">viki</li>
+        <li id="two">domi</li>
+    </ul>
+</body>
+<script>
+    // var on = document.getElementById("one")
+    // var tw = document.getElementById("two")
+
+    one.onclick =function(){
+        one.classList.add("active")
+        two.classList.remove("active")
+    }
+    two.onclick =function(){
+        one.classList.remove("active")
+        two.classList.add("active")
+    }
+</script>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="dad">
+        <div id="child">1255636333</div>
+    </div>
+</body>
+    <script>
+        var odiv = document.createElement("div")//新创建
+        odiv.innerHTML ="new element"
+        odiv.id= 5
+        odiv.className= "e"
+        console.log(odiv)
+
+        var a=  document.createElement("div")
+        a.innerHTML ="0.0.0.0"
+
+        dad.appendChild(odiv) //插入这个父级的最后面
+        dad.insertBefore(odiv,child) //插入child的前面
+        // dad.removeChild(child) //删除
+        // dad.remove () //全灭
+        dad.replaceChild(a, child)
+        
+        // console.log(dad.cloneNode())
+        var b= dad.cloneNode(true)
+        console.log(b)
+
+        
+        b.id="new"
+        document.body.appendChild(b)
+    </script>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bb{
+            width: 200px;
+            height: 200px;
+            color: yellow;
+            background-color: red;
+            border-radius: 10px;
+        }
+
+    </style>
+</head>
+<body>
+     <div id="cc" class="bb b1 b2">
+        11111111111111
+    </div>
+    <button id="btn">点击</button>
+</body>
+<script>
+    console.log(cc.className)
+    cc.className= " b1 b5"
+    // cc.className=""
+    cc.className += " bbb"
+
+
+    console.log(cc.classList)
+    cc.classList.add("item")
+    cc.classList.add("item") //重复覆盖了
+    cc.classList.remove("item")
+    
+
+    // cc.classList.toggle ("bb") //有删 没有加
+    btn.onclick = function(){
+        cc.classList.toggle("bb")
+    }
+
+</script>
+</html>
