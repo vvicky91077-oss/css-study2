@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #son{
+            width: 200px;
+            height: 200px;
+            /* padding: 10px; */
+            border: 1px solid gray;
+            color: yellow;
+            background-color: red;
+            border-radius: 10px;
+            margin: 20px;
+            /* box-sizing: border-box; */
+            /* display: none; */
+        }
+         #dad{
+            width: 400px;
+            height: 400px;
+            /* padding: 10px; */
+            border: 1px solid gray;
+            color: yellow;
+            background-color: rgb(16, 202, 209);
+            border-radius: 10px;
+            margin: 20px;
+            /* box-sizing: border-box; */
+            /* display: none; */
+        }
+         #grandpa{
+            width: 600px;
+            height: 600px;
+            /* padding: 10px; */
+            border: 1px solid gray;
+            color: yellow;
+            background-color: rgb(24, 55, 41);
+            border-radius: 10px;
+            margin: 20px;
+            /* box-sizing: border-box; */
+            /* display: none; */
+        }
+
+    </style>
+</head>
+<body>
+    <div id="grandpa">
+        <div id="dad">
+            <div id="son"></div>
+        </div>
+    </div>
+</body>
+<script>
+console.log(grandpa.offsetLeft, grandpa.offsetTop)
+console.log(dad.offsetLeft, dad.offsetTop)
+console.log(son.offsetLeft, son.offsetTop)
+
+console.log(grandpa.clientLeft, grandpa.clientTop)
+console.log(dad.clientLeft, dad.clientTop)
+console.log(son.clientLeft, son.clientTop)
+</script>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>............</div>
+    <div id="dad" abc="1" bcd="2">
+        kerwin
+        <p id = one>1111111111</p>
+        <!-- 我 是注释 -->
+         <span id = two>222222222222</span>
+    </div>
+    <div id="dd">777<p>7</p><!-- 我 是注释 -->
+    </div>
+</body>
+<script>
+    // console.log(dad.childNodes)
+    var a = document.querySelector("#dad")
+    console.log(a.childNodes)
+    
+
+    for (var i =0; i<a.childNodes.length;i++){
+        console.log(a.childNodes[i].nodeType) //nodeName, nodeValue
+
+        if(a.childNodes[i].nodeType===1){
+            console.log(a.childNodes[i])
+        }
+    }
+</script>
+</html>

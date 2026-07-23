@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 300px;
+            height: 100px;
+            background-color: khaki;
+            margin: 100px;
+            position: relative;
+        }
+        p{
+            width: 200px;
+            height: 200px;
+            background-color: rgb(159, 27, 211);
+            position: absolute;
+            left: 200px;
+            top: 200px;
+            display: none;
+            pointer-events: none;
+            z-index: 100;
+        }
+    </style>
+</head>
+<body>
+    <div id="dad">father
+        <p> children</p>
+    </div>
+    <div></div>
+</body>
+<script>
+    dad.onmouseover = function(){
+        this.firstElementChild.style.display = "block"
+    }
+    dad.onmouseout = function(){
+        this.firstElementChild.style.display = "none"
+    }
+    dad.onmousemove = function(evt){
+        this.firstElementChild.style.left = evt.offsetX +"px"
+        this.firstElementChild.style.top = evt.offsetY +"px"
+
+    }
+</script>
+</html>

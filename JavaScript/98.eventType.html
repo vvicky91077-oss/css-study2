@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #jerr {
+            width: 300px;
+            height: 300px;
+            background-color: black;
+            margin-left: 50px;
+        }
+
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+        }
+        #neew{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn">clickMe</button>
+    <button id="jerry">MOUSE</button>
+    <br>
+    <br>
+    <div id="jerr">
+        <div></div>
+
+    </div>
+    <input type="text" id="input">
+    <br>
+    <input type="text" id="inn"><br>
+    
+    <form action="" id="myform">
+        <input type="text">
+        <input type="submit" id="sub">
+        <input type="reset" id="reset">
+    </form>
+
+    <div id =neew></div>
+</body>
+<script>
+
+    btn.onclick = function () {
+        console.log("single click")
+    }
+    btn.ondblclick = function () {
+        console.log("double click")
+    }
+    btn.oncontextmenu = function () {
+        console.log("right click")
+    }
+    document.oncontextmenu = function () {
+        console.log("right click ,custom menu or something")
+    }
+
+    jerry.onmousedown = function () {
+        console.log("mouse down")
+    }
+    jerry.onmousemove = function () {
+        console.log("mouse move")
+    }
+    jerry.onmouseup = function () {
+        console.log("mouse up")
+    }
+
+
+    jerr.onmouseover = function () {
+        console.log("over")
+    }
+    jerr.onmouseout = function () {
+        console.log("out")
+    }
+    jerr.onmouseenter = function () {
+        console.log("enter")
+    }
+    jerr.onmouseleave = function () {
+        console.log("leave")
+    }
+
+
+
+    input.onkeydown = function () {
+        console.log("keydown")
+    }
+    input.onkeyup = function () {
+        console.log("keyup")
+    }
+
+
+    inn.onfocus = function () {
+        console.log("focus")
+
+    }
+    inn.onblur = function () {
+        console.log("blur")//离开的时候 才检测输入内容
+
+    }
+    inn.onchange = function () {
+        console.log("change")
+
+    }
+    inn.oninput = function () {
+        console.log("input")
+
+    }
+
+
+
+    myform.onsubmit = function () {
+        console.log("submit")
+    }
+    myform.onreset = function () {
+        console.log("reset")
+    }
+
+
+    neew.ontouchstart = function(){
+        console.log("触摸开始")
+    }
+    neew.ontouchmove = function(){
+        console.log("移动")
+    }
+    neew.ontouchend = function(){
+        console.log("结束🔚")
+    }
+    neew.ontouchcancel = function(){
+        console.log("取消❌")
+    }
+</script>
+
+</html> 

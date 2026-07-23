@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <style>
+        #bb{
+            width: 200px;
+            height: 200px;
+            padding: 10px;
+            border: 10px solid gray;
+            color: yellow;
+            background-color: red;
+            border-radius: 10px;
+            margin: 50px;
+            /* box-sizing: border-box; */
+            /* display: none; */
+        }
+
+    </style>
+</head>
+<body>
+    <div id="bb"></div>
+</body>
+<script>
+console.log(bb.offsetWidth) //padding+content+border
+console.log(bb.offsetHeight)
+console.log(bb.clientWidth) //不含border //margin不影响
+console.log(bb.clientHeight)
+
+
+</script>
+</html>

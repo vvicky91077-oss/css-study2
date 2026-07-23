@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        ul li {
+            overflow: hidden;
+            height: 9.375rem;
+        }
+
+        ul li img {
+            float: left;
+            width: 5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>电影排行榜</h1>
+    <ul id="list">
+        <li>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLMeM-HkfF9PrbWFhhHkuB6ytzRe9zu5YfjSGRKc8B2w&s=10"
+                alt="">
+            <h3>情书</h3>
+        </li>
+    </ul>
+</body>
+<script>
+    var arr1 = [{
+        name: "哆啦a梦",
+        url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGB1RgLOpQ2sKB_00f4mz3_L-XpmfO1BaFUnt90WE0Pw&s=10"
+
+    }, {
+        name: "坏蛋爱上美人鱼",
+        url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyVH7A92nWjRjgPQOSrUsUo1M6Zc6dZ4Rx2udKUCVsXg&s=10"
+    }, {
+        name: "小女人",
+        url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRElncYihbn62koIZ_B167ckHc9H0qGep4jw0-lI8I4VQ&s=10"
+    }, {
+        name: "小黄人",
+        url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCXp2h7GYNrtYr_4s7CpO8t_L-X60Gvu_qAcehRNioiQ&s=10"
+    }, {
+        name: "老太婆",
+        url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRaXWnShLUKHO8C8xLs7OUHF74T8ywHtLqze2z7FNidg&s=10"
+    }, {
+        name: "Pretty girl",
+        url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQc9UCIlTG0gWfD9wJAGuXpa3MbdkC4Jgtv0h6BUCIqVw&s=10"
+    }]
+
+    var arr2 = [{
+        name: "哆啦a梦",
+        url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThZDUKewMpwjNVqJknxFCky5dtIH26RPZGaUtd9eSxqw&s=10"
+
+    }, {
+        name: "阿么",
+        url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUNibfhvVMfYOUrTMlPdazB3-WrBhwm7heOI2pvyx3yQ&s=10"
+    }, {
+        name: "小女人",
+        url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1WSdptDd5yJWDPkCH0NydxdLwHbzw4ODPMHt2QWFydw&s=10"
+    }, {
+        name: "小黄人",
+        url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnY60NBQA8yaVE4PDqBNbe5N62-Xs9hlJRTJUfMcloaw&s=10"
+    }, {
+        name: "老太婆",
+        url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdIzgRUm4zTo28kuWY6MWvaA9UH_5VCdsiwW8Z3EKC0w&s"
+    }, {
+        name: "Pretty girl",
+        url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYKU8mjE4eZSSXkyQ2n3ji5DrBV8xNc4Zq1Ai9ZhX-Jg&s=10"
+    }]
+
+
+    renderHTML(arr1)
+    function renderHTML(arr) {
+        /* list.innerHTML += arr.map(function (item) {
+            return `<li>
+            <img src=${item.url} alt="">
+            <h3>${item.name}</h3>
+        </li>`
+        }).join("") */
+
+        for(var i =0;i<arr.length;i++){
+            var oli = document.createElement("li")
+            oli.innerHTML= `<img src= ${arr[i].url}
+                alt="">
+            <h3>${arr[i].name}</h3>`
+
+            list.appendChild(oli)
+        }
+    }
+
+    var onLoading = false
+    // console.log(window.onLoading)
+    window.onscroll = function () {
+        console.log("1555555555556")
+
+        var listHeight = list.offsetHeight
+        var listTop = list.offsetTop
+        var listSum = listHeight+listTop
+        // console.log(listHeight + listTop)
+
+        var scrollTop = document.documentElement.scrollTop || document.body.scrollTop
+        var windowHeight = document.documentElement.clientHeight
+        var scrollSum = Math.round(scrollTop+ windowHeight) 
+        // console.log(scrollTop+ windowHeight)
+
+        if (onLoading) return
+        if((listSum-scrollSum)<50){
+            // console.log("到底了")
+            // renderHTML(arr2)
+            onLoading = true
+
+            setTimeout(function(){
+                renderHTML(arr2)
+
+                onLoading=false //下一次到底 了继续触发
+            },1000)
+        }
+    }
+
+
+
+</script>
+
+</html>

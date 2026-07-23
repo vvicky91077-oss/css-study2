@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="c">点击事件</button>
+</body>
+<script>
+    //dom
+    /* c.onclick =function(){
+        console.log("111111111")
+        console.log(this)
+
+        this.disabled ="disabled" //执行一次就死
+    } */
+
+    c.onclick =function(){
+        console.log("************") //覆盖
+        this.onclick = null //执行一次就空
+    }
+
+
+    function mm (){
+        console.log("---------") 
+
+    }
+    //dom2
+    c.addEventListener ("click",mm)
+    c.removeEventListener("click",mm) //一次都执行不了
+
+    c.addEventListener ("click",function(){
+        console.log("++++++++++") 
+
+    })
+    c.addEventListener ("click",function(){
+        console.log("............") 
+
+    })
+
+
+    //低版本浏览器
+    /* c.attachEvent ("onclick",function(){
+        console.log("111111111")
+
+    }) */
+
+    
+</script>
+</html>
