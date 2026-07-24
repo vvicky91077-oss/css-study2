@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            width: 100px;
+            height: 100px;
+            list-style: none;
+            position:absolute;
+            border: 1px solid black;
+            padding: 10px;
+            display: none;
+        }
+        ul li:hover{
+            background: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <ul id="list">
+        <li id="aa">啊啊啊</li>
+        <li id="bb">*******</li>
+        <li id="cc">54545</li>
+        <li id="dd">........</li>
+    </ul>
+</body>
+<script>
+    document.addEventListener("contextmenu",function(evt){
+        evt.preventDefault()
+
+        list.style.display ="block"
+
+        var x = evt.clientX
+        var y = evt.clientY
+        if (x>=document.documentElement.clientWidth-list.offsetWidth)
+        x=document.documentElement.clientWidth-list.offsetWidth
+
+        if (y>=document.documentElement.clientHeight-list.offsetHeight)
+        y=document.documentElement.clientHeight-list.offsetHeight
+
+        list.style.left=x +"px"
+        list.style.top=y + "px"
+
+    })
+    document.addEventListener("click",function(){
+        list.style.display ="none"
+
+    })
+
+    list.onclick = function(e){
+        console.log(e.target.nodeValue)
+        if (e.target.id === "aa"){
+            location.href="http://www.baidu.com"
+        }else if (e.target.id ==="bb"){
+            location.href="https://www.youtube.com/"
+
+        }else if (e.target.id ==="cc"){
+            location.href="https://chatgpt.com/"
+
+        }else if (e.target.id ==="dd"){
+            location.href="https://www.easyslides.ai/"
+
+        }
+    }
+</script>
+</html>

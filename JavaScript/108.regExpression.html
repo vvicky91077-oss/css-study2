@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    var reg1 = new RegExp("\s")
+    // console.log(reg1.test(v1))
+
+    var v1 = "abacaa0aabc"
+    var reg = /ac/
+    var reg0 = /\d/
+
+    // console.log(reg.test(v1))
+    // console.log(reg0.test(v1))
+
+</script>
+<script>
+    var a = "asdf fe$9000"
+    var reg0 = /\d/
+    var reg1 = /\D/
+    var reg2 = /\s/
+    var reg3 = /\S/
+    var reg4 = /\w/
+    var reg5 = /\W/
+    var reg6 = /./
+    var reg7 = /\d\.\d/
+    var reg8 = /^\w$/ //开头结尾都是字符
+    var reg9 = /\d$/ //结尾是1给数字
+    var reg10 = /^abc/
+    var reg10 = /^abc$/
+    var reg10 = /^ab.*c$/ //任意n次
+    var reg11 = /^a\d+c$/ //+ 1到n次
+    var reg12 = /^a\d?c$/ // ?0到1次 没有也可以
+    var reg13 = /^a\d{2}\w{2,}c$/
+    var reg14 = /^a\d{2}\w{2,5}c$/
+
+
+    console.log(reg0.test(a))
+    console.log(reg1.test(a))
+    console.log(reg2.test(a))
+    console.log(reg3.test(a))
+    console.log(reg4.test(a))
+    console.log(reg5.test(a))
+    console.log(reg6.test(a))
+    console.log(reg7.test("9.9"))
+    console.log(reg8.test(a))
+    console.log(reg9.test(a))
+    console.log(reg10.test("abc"))
+    console.log(reg10.test("aabc")) //必须abc在前面开头
+    console.log(reg10.test("abcrfabc")) //只能是abc
+    console.log(reg10.test("abfdddd44444444444c")) //只能是abc
+    console.log(reg11.test("a054c"))
+    console.log(reg12.test("ac"))
+    console.log(reg13.test("a10wwdsddddddc"))
+    console.log(reg14.test("a10wwdsddddddc"))
+    console.log("...........................")
+
+    var re = /^(abc){2}$/
+    var re1 = /(abc){2}/
+    var re2 = /abc{2}/
+    console.log(re2.test("abcc"))
+    console.log(re1.test("ds87554abcabc"))
+    console.log(re.test("5455sbcc"))
+    console.log(re.test("abcc"))
+    console.log(re.test("abcabc"))
+    console.log("...........................")
+
+
+    var ri = /a|b/  //或 有一个就行
+    console.log(ri.test("a"))
+    console.log(ri.test("54b"))
+    console.log(ri.test("12"))
+    console.log(ri.test("apple.Q"))
+    console.log("...........................")
+
+    var ri0 = /(abc|def)/
+    var ri1 = /(abc)|(def)|(x)/
+    console.log(ri0.test("abc47h54d4"))
+    console.log(ri1.test("47h54d4xef"))
+    console.log("...........................")
+
+
+    var r0 = /[\.]/ //任一字体
+    var r1 = /[abcd]/ //有里面的其中一个字就行
+    console.log(r0.test("rgdfr$5.281212"))
+    console.log(r1.test("ynt%@#@@56166.a"))
+
+    var r2 = /[a-zA-Z0-9]/
+    console.log(r2.test("ynt%@#@@56166.a"))
+
+    var r2 = /[a-cA-Z0-9]/
+    console.log(r2.test("ynt%@#"))
+
+    var r3 = /[^abc]/ //找一个 不包含abc的就行
+    console.log(r3.test("ervrg4c"))
+    console.log("...........................")
+
+
+
+    var u = /\d/
+    console.log(u.exec("aa123aaaaa"))
+    console.log(u.exec("48653etdn0rtng3srb0egs4"))
+
+    var p0 = "from cetury 2019-01-01 19:20:20 to 2022-05-05 18:30:10"
+    var u0 = /\d{4}-\d{1,2}-\d{1,2}/
+    var newo = u0.exec(p0)
+    console.log(newo)
+    console.log(newo[0].split("-").join("/"))
+    // console.log(newo[0].join("/"))
+
+
+
+    //标识符
+
+    var i0 = "from cetury 2019-01-01 19:20:20 to 2022-05-05 18:30:10"
+    var i = /(\d{4})-(\d{1,2})-(\d{1,2})/g
+
+    var i1 = i.exec(i0)
+    console.log(i1) //第一个日期
+
+    var i2 = i.exec(i0)
+    console.log(i2) //第2个日期
+
+    var i3 = i.exec(i0)
+    console.log(i3) //空,没有日期了
+
+
+
+    console.log("0....................................")
+    var mynum = /[a]/ig //i是不管大小,g是找遍所有
+    console.log(mynum.exec("ABDZA"))
+    console.log(mynum.exec("ABDZA"))
+
+
+
+    //贪婪 
+    var va = /\d{1,4}/ //4个都获取
+    var va1 = /\d{1,4}?/ //非贪婪 找到1个 就停了 不贪婪
+
+    console.log(va.exec("abe948615"))
+    console.log(va1.exec("abe948615"))
+
+
+    var str = `<p class="active"><span></span><p>`
+    var my = /<p.*?>/
+    console.log(my.exec(str))
+    console.log("....................................")
+    
+</script>
+<script>
+    //replace   search 
+    var aa= "abdee43aewdwaa"
+    // var newaa= aa.replace("a","**")
+    var newaa= aa.replace(/a/g,"**") //获取a然后全局
+    console.log(newaa)
+
+    console.log(aa.search("e"))
+    console.log(aa.search(/w/)) //显示索引位置
+
+
+    //match
+    var ss = "advwfds"
+    console.log(ss.match(/d/g))
+
+    var ww = "from cetury 2019-01-01 19:20:20 to 2022-05-05 18:30:10"
+    var check = /(\d{4})-(\d{1,2})-(\d{1,2})/g
+    var abc =ww.match(check)
+
+    console.log(abc)
+    console.log(abc[0].split("-").join("/"))
+    console.log(abc[1].split("-").join("/"))
+    
+</script>
+
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+              overflow: hidden;
+        }
+        #box {
+            width: 500px;
+            height: 500px;
+            background: rgb(93, 212, 220);
+            margin: 50px;
+          
+        }
+        #dad {
+            width: 300px;
+            height: 300px;
+            background: salmon;
+            margin: 50px;
+
+        }
+        #son{
+            width: 200px;
+            height: 200px;
+            background: rgb(233, 228, 132);
+            margin: 50px;
+
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="dad">
+            <div id="son"></div>
+        </div>
+    </div>
+</body>
+<script>
+   
+    son.onclick = function(){
+        console.log("son")
+    }
+    dad.onclick = function(){
+        console.log("dad")
+    }
+    box.onclick = function(){
+        console.log("box")
+    }
+    document.body.onclick = function(){
+        console.log("body")
+    }
+    document.documentElement.onclick = function(){
+        console.log("html")
+    }
+    document.onclick = function(){
+        console.log("document")
+    }
+     window.onclick = function(){
+        console.log("window")
+    }
+    
+    
+    son.addEventListener ("click",()=>{
+        console.log("son") 
+        
+        location.href="http://www.baidu.com"
+    },true)
+    dad.addEventListener ("click",()=>{
+        
+        console.log("dad")
+
+    },true)
+     box.addEventListener ("click",()=>{
+        console.log("box")
+    },true)
+     document.body.addEventListener ("click",()=>{
+        console.log("document.body")
+    },true)
+     document.documentElement.addEventListener ("click",()=>{
+        console.log("document.documentElement")
+    },true)
+     document.addEventListener ("click",()=>{
+        console.log("document")
+    },true)
+    window.addEventListener ("click",()=>{
+        console.log("window")
+
+
+    },true)
+    
+
+</script>
+</html>

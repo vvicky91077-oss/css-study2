@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" id="myform">
+        <input type="text">
+        <input type="submit">
+    </form>
+</body>
+<script>
+    myform.onsubmit =function(){
+        console.log("submit")
+        return false
+    }
+    // document.oncontextmenu = function(){
+    //     console.log("right click")
+    //     return false
+    // }
+    document.addEventListener ("contextmenu",function(e){
+        console.log("dom2 -right click"        )
+        e.preventDefault()
+
+    })
+</script>
+</html>
