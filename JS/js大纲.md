@@ -69,3 +69,9 @@ https://juejin.cn/post/6946021671656488991?searchId=20260725104712DE671DB9DBBFE9
 https://juejin.cn/post/7205875448575033400
 # es6 ES6 Promise
 https://juejin.cn/post/7320288262400311333?searchId=202607251048002F60689B4DDD401AD942
+
+https://www.arryblog.com/vip/es6/ 全部
+# for .... of ....
+for...of 的底层核心是迭代器协议与可迭代协议。当循环启动时，它会调用对象的 Symbol.iterator 方法获取一个迭代器，然后重复调用该迭代器的 next() 方法，直到返回对象的 done 属性变为 true 为止。
+https://juejin.cn/post/7239715295485362237
+https://www.arryblog.com/vip/es6/iterator-mode.html 这篇文章
