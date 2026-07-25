@@ -67,5 +67,5 @@ https://juejin.cn/post/6946021671656488991?searchId=20260725104712DE671DB9DBBFE9
 
 # 前端设计模式 ：工厂模式 单例模式 
 https://juejin.cn/post/7205875448575033400
-# es6 ES6 Promis
+# es6 ES6 Promise
 https://juejin.cn/post/7320288262400311333?searchId=202607251048002F60689B4DDD401AD942
