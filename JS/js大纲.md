@@ -61,5 +61,11 @@ https://juejin.cn/post/6844903618764603399?searchId=2026072510405761F138C34E3579
  Axios 的底层原理核心在于环境适配器、Promise 异步管理以及拦截器链式调用。它根据运行环境自动切换请求方式，对外提供统一的 Promise 接口，并在发送前后通过队列处理数据。核心工作机制环境适配器：在浏览器中自动使用原生的 XMLHttpRequest 对象发送请求。在 Node.js 环境中自动切换使用原生的 http 或 https 模块。Promise 封装：所有请求最终都返回一个 Promise 对象，方便使用 .then() 和 .catch() 或 async/await 处理异步结果。拦截器（Interceptors）：采用类似链表或数组队列的 chain 机制。请求拦截器按照“后进先出”的顺序执行，响应拦截器按照“先进先出”的顺序执行，在请求发出前和响应到达后对数据进行加工。转换与取消：自动对请求数据和响应数据进行 JSON 转换。通过 CancelToken（或现代的 AbortController）实现请求的中断机制。
 
 # this 指向
+
+https://juejin.cn/post/6946021671656488991?searchId=20260725104712DE671DB9DBBFE93B07AD
+
+
 # 前端设计模式 ：工厂模式 单例模式 
 https://juejin.cn/post/7205875448575033400
+# es6 ES6 Promis
+https://juejin.cn/post/7320288262400311333?searchId=202607251048002F60689B4DDD401AD942
