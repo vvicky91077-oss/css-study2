@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    console.log(a)
+    var a = "abc"
+    var a = 123
+    console.log(a)
+
+
+    // console.log(b) //不能提前访问
+    let b = "abc"
+    // let b = 86 //不能重名
+    console.log(b)
+
+    console.log("..................")
+
+
+    if (true) {
+        var i1 = 1
+        var ab = "apples"
+        console.log(i1,ab)
+    }
+    console.log(i1, ab)
+
+
+
+    if (true) {
+        let v = 12222
+        var b0 = "apples"
+        console.log(v, b0)
+    }
+    // console.log(v,b0) //外部无法使用 访问
+
+
+    let hello  //可以先声明 后定义
+    hello = "I am superstar"
+    console.log(hello)
+    console.log("..................")
+
+
+
+
+    const name = "vii"
+    // const name = 25 //不能同名
+    // const name = "viki"//常量无法改变，是定义的。
+    console.log(name)
+
+    const vi = {
+        name: "emily",
+        age: 52
+    }
+    // vi ={name: "vv",age:12} //无法覆盖常量
+
+
+    console.log(vi)
+    vi.name = "viki"
+    vi.age = 15 //改内容 不是复制。常量可改数组 对象里面的内容，单一内容不可改
+    console.log(vi)
+
+
+    /* const welcome
+    welcome = "i am a bitch"
+    console.log(welcome) */ //无法先声明后定义
+    console.log("..................")
+
+
+
+   /*  for (var i = 0; i < 5; i++) {
+        console.log(i)
+    }
+    console.log(i) */
+
+    for (let i = 0; i < 5; i++) {
+        console.log(i)
+    }
+    // console.log(i) //无法从外面使用
+
+
+    
+</script>
+
+</html>

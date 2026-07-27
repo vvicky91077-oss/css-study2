@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="mytext">
+</body>
+<script>
+    /* var test1 = function(){
+        console.log('123bkk')
+    }
+    console.log(test1)
+    test1() */
+
+    var test1 = ()=> console.log('123bkk')
+    console.log(test1)
+    test1()
+
+    var test2 = b=> console.log('123bkk',b)
+    test2(100)
+
+    var test2 = b=> 100+b
+    console.log(test2(10))
+
+
+    var list = ["a","b","c"]
+    var newlist = list.map(item=>`<li>${item}</li>`)
+    console.log(newlist.join(""))
+
+    var test3 = ()=> console.log("success")
+    test3()
+
+    var test4 =() => ({name: "viki"}) //对象要包裹
+    console.log(test4())
+
+    var test5 =() => [1,50,'a'] 
+    console.log(test5())
+
+    var tes = function(a,b,c){
+        console.log(a,b,c)
+    }
+    tes(1,0)
+
+    var tes0 = function(){
+        console.log(arguments[0],arguments[2])
+        console.log(arguments)
+    }
+    tes0(1,0,'ewgsdi',5,6,'rrtchvjhbk') //arguments 不能在箭头函数使用
+
+    console.log("..............................")
+
+
+    var aa= ()=>{
+        console.log(this)
+    }
+    aa()
+
+   /*  mytext.oninput = function(){
+        var that = this
+        setTimeout(function(){
+        console.log(that.value)
+        console.log(that)
+            
+        },1000);
+    } */
+
+
+     mytext.oninput =function(){
+        // var that = this
+        setTimeout(()=>{
+        console.log(this.value)
+        console.log(this)
+            
+        },1000);
+    } 
+    
+</script>
+</html>

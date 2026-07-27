@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <input type="text" id="myusername">
+   <input type="password" id="mypassword">
+   <button id="btn">login</button>
+
+   <script>
+    //对象简写
+    btn.onclick = function(){
+        let username = myusername.value
+        let password = mypassword.value
+
+        console.log(username,password)
+
+        var oobj={
+            username,
+            password
+        }
+        console.log("发给后端的解构",oobj)
+
+
+    }
+
+    var oj ={
+        a:1,
+        getName(){
+            console.log(this.a)
+        }
+    }
+    oj.getName()
+
+
+   </script>
+</body>
+<script>
+     var a = ["abc",'mamg',"viki"]
+     console.log(a,a[0],a[2],a[a.length-1])
+     console.log(...a) //展开
+
+     let [x,y,z,b] = a  //解构一样，快速赋值方式
+     console.log(x,y,z,b)
+
+
+
+
+     var t= 10
+     var u = 20
+     var [u,t]=[t,u] //调换位置
+     console.log(t,u)
+
+
+     var arr = [1,2,[3,[4],5]]
+     console.log(arr[2][1][0])
+     var [q0,w0,[i0,[p0],l0]]=arr
+    console.log(q0,w0,i0,p0,l0)
+    console.log("........................")
+
+
+
+    var obj = {
+        name:"vii",
+        age:85,
+        location:{
+            city:"burma",
+            province:"shan"
+        },
+        hobby:["run",'travel','eating','sing']
+    }
+    // let {name,age,location:mylocation}=obj
+    // console.log(name,age,mylocation)
+   
+    var {
+        name,
+        age,
+        location:{
+            city,
+            province
+        },
+        hobby:[bo,po,wo,mo]
+    } = obj
+    console.log(name,age,province,city,bo,po,mo,wo)
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+</script>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="oli">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+    <h1>修改</h1>
+    <input type="text" id="myusername">
+    <input type="number" id="myage">
+    <button id="btn">注册</button>
+    <div id="box"></div>
+
+</body>
+<script>
+    var objj ={
+        name: 'vvv',
+        age:55,
+        location: "yunnan",
+        id: "94653120"
+    }
+
+    render(objj)
+    function render({name,age,location}){
+        // console.log(obj)
+        // var {name,age,location}=Formalparameter //这样展开更明白
+        box.innerHTML = `name= ${name}, age=${age}, location=${location}`
+    }
+
+    btn.onclick=function(){
+        // console.log(myusername.value,myage.value)
+        var name= myusername.value || objj.name //如果🈳用自带
+        var age = myage.value || objj.age //如果🈳用自带
+
+        var newobj ={
+            ...objj, //下面2个key同名 会覆盖，其他保留
+            name, //key 和value 一样，可简写
+            age
+        }
+        console.log(newobj)//给后端的新数组
+
+        render(newobj) //渲染最新的内容
+
+        
+
+
+    }
+
+</script>
+<script>
+    var a = [1, 'l', 6, 'ubjhk']
+    var b = [121, 'lersfd', 7, 'll']
+    var c = [...a, ...b]
+    console.log(c)
+    console.log(a.concat(b))
+    var d = [...b]
+    d[0] = 500 //复制了，所以改变不会影响原来的
+    console.log(d, d[0], b[0])
+
+    var e = a //这样赋值方式 是把居住权限给了对方而已，不是给new的
+    e[0] = '改了'
+    console.log(e[0], a[0])//原有的也被影响
+    console.log("-------------------------")
+
+
+
+    //参数
+    var test = function (g, r, ...hhh) { //剩余参数必须在后面
+        // console.log(arguments) //不能用箭头函数
+        console.log(g, r, hhh)
+    }
+    test(1, 0, 5, 8, 85)
+
+    var rr = [0, 2, 8]
+    var r0 = function (a, b, c) {
+        console.log(a, b, c)
+    }
+    r0(...rr)
+
+    var res = Math.max(...rr) //展开数组
+    console.log(res)
+
+
+
+    function tt() {
+        // var aa = Array.from(arguments)
+        var aa = [...arguments] //把传参改成数组
+        console.log(aa)
+    }
+    tt(1, 5, 9)
+
+
+
+    var oli = document.querySelectorAll('li')
+    console.log(oli) //伪数组
+    var ooli = [...oli] //变真的数组
+    console.log(ooli)
+    console.log("-------------------------")
+
+
+
+    //...对象
+
+    var obj1 = {
+        name: 'viki',
+        age: 55,
+        location: "aaa"
+    }
+    var obj2 = {
+        name2: 'ii',
+        age: 100
+    }
+    var obj3 = {
+        ...obj1,
+        ...obj2
+    }
+    console.log(obj3) //同key名的被覆盖了
+
+
+
+
+
+</script>
+
+</html>

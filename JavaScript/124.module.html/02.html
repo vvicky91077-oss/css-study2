@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script src="./C.js" type="module">
+    // C()
+    // console.log(C)
+</script>
+<script type="module">
+    import { C } from './C.js'
+    C()
+    console.log(C)
+
+
+    
+    import {
+        A1,
+        A2,
+        test as a_test,
+        A_A
+    } from './A.js';
+
+    A1()
+    a_test()
+    // a_common() //没倒出 无法倒入
+
+
+    import {
+        B1,
+        B2,
+        test as b_test,
+        B_B
+
+    } from './B.js'
+
+    B_B()
+    b_test()
+
+
+
+</script>
+<script>
+    // A1()
+</script>
+
+</html>

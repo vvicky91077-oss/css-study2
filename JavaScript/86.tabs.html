@@ -53,21 +53,22 @@
         <li>4</li>
     </ul>
      <ul class="box">
-        <li class="active">******************</li>
-        <li>--------------------</li>
-        <li>+++++++++++++++++++++++++++</li>
-        <li>.................................</li>
+        <li class="active">111111111111111</li>
+        <li>----------2222222222222----------</li>
+        <li>+++++++++++++3333333333333333333++++++++++++++</li>
+        <li>.................444444444444444444444444................</li>
     </ul>
 </body>
 <script>
     var head = document.querySelectorAll(".header li")
     var content = document.querySelectorAll(".box li")
 
-    for (var i =0;i<head.length;i++){
+    for (let i =0;i<head.length;i++){
 
-        head[i].dataset.index=[i]
+        // head[i].dataset.index=[i]
         head[i].onclick =function(){
-            var index = this.dataset.index
+            console.log(i)
+             var index =  i //this.dataset.index
 
             for (var m=0; m<head.length;m++){
                 head[m].classList.remove("active")
@@ -75,7 +76,7 @@
             }
 
             head[index].classList.add("active")
-            content[index].classList.add("active")
+            content[index].classList.add("active") 
         }
     }
 </script>
