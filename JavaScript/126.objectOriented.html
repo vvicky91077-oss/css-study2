@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var obj1 = {
+        name:"鳗鱼饭",
+        material: ['salt','oil','fish','sauces'],
+        howToCook(){
+
+        }
+
+    }
+
+    // var obj3 = new obj1() //obj1只是 对象，不是构造函数 无法new
+    var obj3 = new Object()
+    obj3.name = "qiqi"
+    
+    var objp = new Object()
+    obj3.age = 55
+
+    console.log(obj1)
+    console.log(obj3)
+    console.log(objp)
+    console.log("......................")
+
+
+    function CreateObj(name){
+        var obj ={}
+        obj.name=name,
+        obj.material=[]
+        return obj
+    }
+    var obj4= CreateObj()
+    obj4.name='uiui' //修改不影响
+    obj4.material=['a','b']
+    console.log(obj4)
+
+    var obj5= CreateObj('鳗鱼饭')
+    console.log(obj5)
+    console.log("......................")
+
+
+
+
+
+    function AnewObject(name){
+        this.name = name
+        this.material=[]
+        this.cook=function(){}
+        //构造函数不写 return，开头大写，调用必须加 new。
+    }
+    var obj7 = new AnewObject //加了new  新的构造函数
+    var obj8 = new AnewObject("鳗鱼饭")
+    var obj9 = new AnewObject("咸鱼饭")
+
+    console.log(obj7)
+    console.log(obj8)
+    console.log(obj9)
+    console.log("......................")
+
+
+
+
+    function CreateU (name){
+        console.log(this)
+        this.name= name
+
+        this.cook =function(){
+            console.log(this.name)
+        }
+    }
+
+    var oobj= new CreateU ("viiiii")
+    oobj.cook()
+    console.log(oobj)
+</script>
+</html>

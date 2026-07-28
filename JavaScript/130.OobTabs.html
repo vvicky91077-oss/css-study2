@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        .header{
+            display: flex;
+            width: 500px;
+        }
+        .header li {
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            flex: 1;
+            border: 1px solid black;
+        }
+        .box {
+            position: relative;
+            height: 300px;
+
+        }
+        .box li{
+            width: 498px;
+            height: 300px;
+            background-color: skyblue;
+            position: absolute;
+            left: 0;
+            right: 0;
+            border: 1px solid black;
+            display: none;
+
+        }
+        .header .active {
+            background-color: gold;
+        }
+        .box .active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container1">
+        <ul class="header">
+        <li class="active">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+     <ul class="box">
+        <li class="active">111111111111111</li>
+        <li>----------2222222222222----------</li>
+        <li>+++++++++++++3333333333333333333++++++++++++++</li>
+        <li>.................444444444444444444444444................</li>
+    </ul>
+    </div>
+
+    <div class="container2">
+        <ul class="header">
+        <li class="active">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+     <ul class="box">
+        <li class="active">111111111111111</li>
+        <li>----------2222222222222----------</li>
+        <li>+++++++++++++3333333333333333333++++++++++++++</li>
+        <li>.................444444444444444444444444................</li>
+        <li>............55555..............</li>
+    </ul>
+    </div>
+    <div class="container3">
+        <ul class="header">
+        <li class="active">1</li>
+        <li>2</li>
+        <li>3</li>
+        
+    </ul>
+     <ul class="box">
+        <li class="active">111111111111111</li>
+        <li>----------2222222222222----------</li>
+        <li>+++++++++++++3333333333333333333++++++++++++++</li>
+        
+    </ul>
+    </div>
+</body>
+<script>
+   /*  var head =document.querySelectorAll(".header li")
+    var content =document.querySelectorAll(".box li")
+
+    for (let i =0; i< head.length;i++){
+        
+        head[i].onclick = function(){
+            var index = i 
+
+            for (var v=0; v<head.length;v++){
+                head[v].classList.remove("active")
+                content[v].classList.remove("active")
+            }
+
+            head[index].classList.add("active")
+            content[index].classList.add("active")
+        }
+
+    } */
+
+
+
+    function Tabs(select,type){
+        var container = document.querySelector(select)
+        this.head = container.querySelectorAll(".header li")
+        this.content= container.querySelectorAll(".box li")
+
+        console.log(this.head,this.content)
+        this.type= type
+        this.change()
+    }
+    Tabs.prototype.change= function(){
+        var that = this //或者用箭头函数
+        for (let i =0; i<this.head.length;i++){
+        
+        this.head[i].addEventListener(this.type,function(){
+            var index = i 
+
+            for (var v=0; v<that.head.length;v++){
+                that.head[v].classList.remove("active")
+                that.content[v].classList.remove("active")
+            }
+
+            that.head[index].classList.add("active")
+            that.content[index].classList.add("active")
+        })
+
+    }
+    }
+    var a=new Tabs(".container1","click")
+    // a.change()
+    var b=new Tabs(".container2","mouseover")
+    var c=new Tabs(".container3","mouseover")
+    // b.change()
+</script>
+</html>

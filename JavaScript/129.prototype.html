@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="box1">
+        <h1></h1>
+        <ul></ul>
+    </div>
+    <div id="box2">
+        <h1></h1>
+        <ul></ul>
+    </div>
+</body>
+<script>
+    var data ={
+        title: "体育",
+        list: ['羽毛球','匹克球','乒乓球','网球']
+    }
+    var data1 ={
+        title: "娱乐",
+        list: ['游乐园','鬼屋','沙滩','蹦迪']
+    }
+    
+
+
+    /* function CreateList (title,list){
+        // this.element= document.querySelector(select)
+        // this.title= data.title,
+        // this.list= data.list
+        this.title= title,
+        this.list=list
+
+    }
+    var obj1=new CreateList(data.title,data.list)
+    var obj2=new CreateList(data1.title,data1.list)
+    console.log(obj1)
+    console.log(obj2) */
+
+
+
+
+    /* function CreateList1 (select,data){
+        this.element= document.querySelector(select)
+        this.title= data.title,
+        this.list= data.list
+        
+        this.render = function(){
+            //渲染
+            var h1 = this.element.querySelector("h1")
+            var ul = this.element.querySelector("ul")
+            console.log(h1,ul)
+            h1.innerHTML = this.title
+            // ul.innerHTML = this.list //普通字段
+            ul.innerHTML = this.list.map(item=>`<li>${item}</li>`).join("")
+        }
+    }
+    var obj3=new CreateList1(".box1",data)
+    obj3.render()
+    var obj4=new CreateList1("#box2",data1)
+    obj4.render()
+
+    console.log(obj3)
+    console.log(obj4) */
+
+
+
+     function CreateList1 (select,data){
+        this.element= document.querySelector(select)
+        this.title= data.title,
+        this.list= data.list
+        
+        
+    }
+    CreateList1.prototype.render= function(){
+        
+        var h1 = this.element.querySelector("h1")
+        var ul = this.element.querySelector("ul")
+        // console.log(h1,ul)
+        h1.innerHTML = this.title
+        ul.innerHTML = this.list.map(item=>`<li>${item}</li>`)
+        .join("")
+    }
+    var obj3=new CreateList1(".box1",data)
+    obj3.render()
+    var obj4=new CreateList1("#box2",data1)
+    obj4.render()
+
+    console.log(obj3)
+    console.log(obj4)
+    
+
+
+</script>
+</html>
