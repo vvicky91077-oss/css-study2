@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box1">
+        <h1></h1>
+        <ul></ul>
+    </div>
+    <div id="box2">
+        <h1></h1>
+        <img src="" width="100px">
+        <ul></ul>
+    </div>
+</body>
+<script>
+    var data = {
+        title: "体育",
+        list: ['羽毛球', '匹克球', '乒乓球', '网球']
+    }
+    var data1 = {
+        title: "娱乐",
+        url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4Z2OQsSAxpD_B4W3QJgKuCgm1CZs5Db470MEUUd8hWQ&s=10",
+        list: ['游乐园', '鬼屋', '沙滩', '蹦迪']
+    }
+
+   /*  class CreateList1 {
+        constructor(select, data = {}) {
+            this.element = document.querySelector(select)
+            this.title = data.title,
+                this.list = data.list
+        }
+        render() {
+            var h1 = this.element.querySelector("h1")
+            var ul = this.element.querySelector("ul")
+            // console.log(h1,ul)
+            h1.innerHTML = this.title
+            ul.innerHTML = this.list.map(item => `<li>${item}</li>`)
+                .join("")
+        }
+    } */
+
+    function CreateList1 (select,data={}){
+        this.element= document.querySelector(select)
+        this.title= data.title,
+        this.list= data.list
+        // this.render()
+    }
+     CreateList1.prototype.render = function () {
+
+        var h1 = this.element.querySelector("h1")
+        var ul = this.element.querySelector("ul")
+        // console.log(h1,ul)
+        h1.innerHTML = this.title
+        ul.innerHTML = this.list.map(item => `<li>${item}</li>`)
+            .join("")
+    }
+    var obj3 = new CreateList1(".box1", data)
+    obj3.render()
+    console.log(obj3)
+
+    console.log("..........................")
+
+
+
+
+
+    class CreateImageList extends CreateList1 {
+        constructor(select, data={}) {
+            super(select, data)
+            this.url = data.url
+            this.render()
+        }
+
+        render() {
+
+            super.render()
+            var img = this.element.querySelector("img")
+            img.src = this.url
+
+        }
+    }
+
+    /* function CreateImageList(select, data) {
+        CreateList1.call(this, select, data)
+        this.url = data.url
+        //  this.enhancerRender()
+        this.render()
+    } */
+
+    /* CreateImageList.prototype=new CreateList1() //原型继承
+    CreateImageList.prototype.enhancerRender=function(){
+        this.render()
+        var img= this.element.querySelector("img")
+        img.src= this.url
+    } */
+
+    /*  CreateImageList.prototype.render = function () {
+             //不继承原型，调用并改变this
+             CreateList1.prototype.render.call(this)
+             var img = this.element.querySelector("img")
+             img.src = this.url
+         } */
+
+    var obj4 = new CreateImageList("#box2", data1)
+    console.log(obj4)
+    // obj4.render()
+
+
+
+</script>
+
+</html>

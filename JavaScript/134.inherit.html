@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    /* function Person ( name,age){
+        this.name=name
+        this.age=age
+        // this.say()
+    }
+    Person.prototype.say=function(){
+        console.log(this.name,this.age,"hello world")
+    } */
+
+
+    class Person {
+        constructor(name, age) {
+            this.name = name
+            this.age = age
+        }
+        say() {
+            console.log(this.name, this.age, "hello world")
+
+        }
+    }
+
+    //extends 继承父级 原型
+    class Student extends Person{
+        constructor(name,age,grade){
+            //super就是继承父级 属性=== Person.call(this,name,age)
+            super(name,age)
+            this.grade=grade
+            this.say()
+        }
+        say(){
+            //也使用继承的 其他方法
+            super.say()
+            //自增方法
+            console.log(this.name,this.age,this.grade,"new say")
+        }
+    }
+
+    var  obj= new Student("viki",18,"A")
+    console.log(obj)
+</script>
+
+</html>

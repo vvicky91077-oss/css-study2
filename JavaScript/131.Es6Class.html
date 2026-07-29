@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+    <script>
+        function CreatObj (name){
+            this.name = name
+            this.say()
+        }
+
+        CreatObj.prototype.say =function(){
+            console.log(this.name,"hello")
+        }
+        var a =new CreatObj("aye")
+        console.log(a)
+        console.log("..........................")
+
+
+
+        //类写法 
+        class CreateObj1 {
+            constructor(name){
+                this.name = name
+                this.say()
+            }
+            say(){
+            console.log(this.name,"hello")
+
+            }
+        }
+        var newC= new CreateObj1("viki")
+        console.log(newC)
+
+
+    </script>
+</html>
