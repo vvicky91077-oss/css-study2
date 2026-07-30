@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function Person ( name,age){
+        this.name=name
+        this.age=age
+        // this.say()
+    }
+    Person.prototype.say=function(){
+        console.log(this.name,this.age,"hello world")
+    }
+    var p=new Person("aye",55)
+    Person.prototype.say()
+    p.say()
+    console.log(".....................")
+
+
+    function Student(name,age,grade){
+        Person.call(this,name,age)
+        this.grade=grade
+    }
+    // Student.prototype=Person.prototype  //会覆盖 互相影响
+
+    Student.prototype= new Person()
+
+   /*  Student.prototype.say=function(){ //同名say已经覆盖了
+        Person.prototype.say.call(this) //同名say 调用方法 改this
+        console.log(this.grade, "你好👋")
+    } */
+
+    //增强原有方法
+    Student.prototype.say2 = function(){ 
+        this.say() 
+        console.log("你好👋",this.name ,"grade:",this.grade )
+    }
+
+    //基础增加
+    Student.prototype.printGrade =function(){
+        console.log(this.grade)
+    }
+    var stu = new Student ("viki",20,"A")
+    stu.say2()
+    // console.log(stu)
+    stu.printGrade()
+
+
+
+
+
+    console.log(".....................")
+    var aa = {
+        grade: 100
+    }
+    Person.call(aa,"uu",50)
+    // console.log(aa)
+</script>
+</html>
