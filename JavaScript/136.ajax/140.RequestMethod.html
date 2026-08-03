@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="getBtn">get</button>
+    <button id="postBtn">post</button>
+    <button id="putBtn">put</button>
+    <button id="deleteBtn">delete</button>
+    <button id="patchBtn">patch</button>
+</body>
+<script>
+    getBtn.onclick = function(){
+        var xhr = new XMLHttpRequest()
+        xhr.open('get','http://localhost:3000/users?name=viki')
+        xhr.onload=function(){
+            if (xhr.status==200){
+                // console.log(xhr.response) //string
+                // console.log(typeof xhr.response) 
+
+                //字符串转换到 js对象
+                //JSON.parse() 不一定变数组，而是根据 JSON 最外层是什么，就变成什么。
+                console.log(JSON.parse(xhr.response))
+            }
+        }
+        xhr.send()
+    }
+
+    postBtn.onclick = function(){
+        var xhr = new XMLHttpRequest()
+        xhr.open('post','http://localhost:3000/users')
+        xhr.onload=function(){
+            if (xhr.status==200){
+                console.log(JSON.parse(xhr.response))
+            }
+        }
+        xhr.setRequestHeader('Content-Type','application/json')
+        //Js对象转换为 JSON 字符串
+        xhr.send(JSON.stringify({name:'viki',password:'123456'}))
+
+        // xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded')
+        // xhr.send(`name=viki&password=123456`)
+    }
+
+    putBtn.onclick = function(){
+        var xhr = new XMLHttpRequest()
+        //要写put请求，必须要有id值
+        xhr.open('put','http://localhost:3000/users/8')
+        xhr.onload=function(){
+            if (xhr.status==200){
+                console.log(JSON.parse(xhr.response))
+            }
+        }
+       /*  xhr.setRequestHeader('Content-Type','application/json')        
+        xhr.send(JSON.stringify({name:'viki',password:'123456'})) */
+
+        xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded')
+        xhr.send(`name= vvvvvvvvvvvv`)
+    }
+
+    
+
+
+
+    deleteBtn.onclick = function(){
+        var xhr = new XMLHttpRequest()
+        
+        xhr.open('delete','http://localhost:3000/users/3')
+        xhr.onload=function(){
+            if (xhr.status==200){
+                console.log(JSON.parse(xhr.response))
+            }
+        }
+       
+        xhr.send()  
+    }
+
+
+
+    patchBtn.onclick = function(){
+        var xhr = new XMLHttpRequest()
+        //要写put请求，必须要有id值
+        //PATCH要大写 不然会报错
+        xhr.open('PATCH','http://localhost:3000/users/4')
+        xhr.onload=function(){
+            if (xhr.status==200){
+                console.log(JSON.parse(xhr.response))
+            }
+        }
+        xhr.setRequestHeader('Content-Type','application/json')        
+        xhr.send(JSON.stringify({name:'O00000G'}))
+
+        // xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded')
+        // xhr.send(`name= vvvvvvvvvvvv`)
+    }
+
+    
+</script>
+</html>
+       
+</script>
+</html>

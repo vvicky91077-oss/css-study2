@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script src="./util.js"></script>
+<script>
+    /* ajax({
+        url: "http://localhost:3000/users",
+
+        data: {
+            "name": "John Doe",
+            "password": "520200"
+        },
+        success: function (res) {
+            console.log("success", res)
+        },
+        error: function (err) {
+            console.log("error", err)
+        }
+    }) */
+
+
+
+    /* ajax({
+        url:"http://localhost:3000/users",  
+        method:"POST",
+        data:/* `name=emily&password=5420` {
+            name:"aaaaaaaaaaa",
+            password:"044400006"
+        } ,
+        headers:{
+            "Content-Type":"application/x-www-form-urlencoded"
+            // "Content-Type":"application/json"
+        },     
+
+        success:function(res){
+            console.log("success", res)
+        },
+        error:function(err){
+            console.log("error", err)
+        }
+    }) */
+
+
+
+
+   ajax({
+        url: "http://localhost:3000/users",
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        data: {
+            "name": "DEMO",
+            "password": "44444"
+        },
+        success: function (res) {
+            console.log("success", res)
+        },
+        error: function (err) {
+            console.log("error", err)
+        }
+    })
+
+    
+</script>
+
+</html>

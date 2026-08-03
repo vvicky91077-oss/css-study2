@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+
+    //ajax 异步请求 创建 XMLHttpRequest 对象  
+    var xhr = new XMLHttpRequest()
+    console.log(xhr)
+
+
+
+
+
+    //设置请求方式和请求地址 第三参数不写 自动为true 异步请求
+    // xhr.open("get","http://127.0.0.1:5500/JavaScript/136.ajax/1.txt") 
+    //跨域了无法访问
+    // xhr.open("get","http://localhost:5500/JavaScript/136.ajax/1.txt") 
+    //本地请求
+    xhr.open("get", "http://127.0.0.1:5500/JavaScript/136.ajax/data.json")
+
+    // xhr.open("get", "/JavaScript/136.ajax/data.json")
+
+
+
+
+    //发送请求
+    xhr.send()
+
+
+
+    //监听请求状态
+    /*  xhr.onreadystatechange = function () {
+         // console.log(xhr.responseText)
+         // console.log(xhr.readyState)
+ 
+ 
+         //请求状态为4 并且请求成功
+         //200 ok 404 not found  500 server error
+         if (xhr.readyState == 4 && xhr.status == 200) {
+             console.log("解析完成", xhr.responseText)
+             document.write(xhr.responseText)
+         }
+     } */
+
+
+    //onload 只在4状态下触发 只要请求成功就会触发
+    xhr.onload = function () {
+
+        if (xhr.status == 200) {
+            // document.write(xhr.responseText)
+            console.log(JSON.parse(xhr.responseText))
+        } else if (xhr.status == 404) {
+            console.log("请求失败")
+        }
+    }
+</script>
+
+</html>

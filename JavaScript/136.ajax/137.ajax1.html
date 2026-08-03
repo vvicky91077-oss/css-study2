@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- form方法会 刷新页面 -->
+    <!-- <form action="data.json">
+        <input type="submit">
+    </form> -->
+
+
+    <button id="btn">获取数据</button>
+    <ul id="mylist"></ul>
+</body>
+<script>
+
+    btn.onclick = function () {
+        // console.log("click")
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("get", "http://127.0.0.1:5500/JavaScript/136.ajax/data.json");
+        xhr.send();
+        xhr.onload = function () {
+
+            //4才会触发onload 不用再判断xhr.readyState
+            // console.log(xhr.readyState)
+
+            if (xhr.status === 200) {
+                // console.log(JSON.parse(xhr.responseText))
+                var jsondata = JSON.parse(xhr.responseText)
+                render(jsondata)
+            }
+
+        }
+    }
+    function render(jsondata) {
+        console.log(jsondata)
+
+        var htl = jsondata.data.list.map(item => `
+            <li>
+                <img src="${item.img}" alt="">
+                <div>${item.name}</div>
+                <div>${item.hobby}</div>
+                </li>
+        `)
+        mylist.innerHTML = htl.join('')
+    }
+
+</script>
+
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="getBtn">get</button>
+    <button id="postBtn">post</button>
+    <button id="putBtn">put</button>
+    <button id="deleteBtn">delete</button>
+    <button id="patchBtn">patch</button>
+</body>
+<script src="./util.js"></script>
+<script>
+    getBtn.onclick = function () {
+         ajax({
+            url: "http://localhost:3000/users",
+
+            /* data: {
+                "name": "one",
+                // "name": "two",//只能一次找一个
+
+                // "password": "111"
+            }, */
+            success: function (res) {
+                console.log("success", res)
+            },
+            error: function (err) {
+                console.log("error", err)
+            }
+        })
+    }
+
+    postBtn.onclick = function () {
+         ajax({
+            url: "http://localhost:3000/users",
+            method: "POST",
+            data:  {"name": "DEMO",
+            "password": "4444"},
+            headers: {"Content-Type":
+             "application/x-www-form-urlencoded"       
+        },
+
+            success: function (res) {
+                console.log("success", res)
+            },
+            error: function (err) {
+                console.log("error", err)
+            }
+        }) 
+    }
+
+    putBtn.onclick = function () {
+        ajax({
+            url: "http://localhost:3000/users/3",
+            method: "PUT",
+            data:  {"name": "DEMO"
+            },
+            headers: {"Content-Type":
+             "application/x-www-form-urlencoded"       
+        },
+
+            success: function (res) {
+                console.log("success", res)
+            },
+            error: function (err) {
+                console.log("error", err)
+            }
+        }) 
+    }
+
+
+
+
+
+    deleteBtn.onclick = function () {
+        ajax({
+            url: "http://localhost:3000/users/3",
+            method: "DELETE",
+            success: function (res) {
+                console.log("success", res)
+            },
+            error: function (err) {
+                console.log("error", err)
+            }
+        }) 
+    }
+
+
+
+
+    patchBtn.onclick = function () {
+        ajax({
+            url: "http://localhost:3000/users/2",
+            method: "PATCH",
+            data:  {"name": "DEMO"
+            },
+            headers: {"Content-Type":
+             "application/x-www-form-urlencoded"       
+        },
+
+            success: function (res) {
+                console.log("success", res)
+            },
+            error: function (err) {
+                console.log("error", err)
+            }
+        }) 
+    }
+
+
+</script>
+
+</html>
+
+</script>
+
+</html>
