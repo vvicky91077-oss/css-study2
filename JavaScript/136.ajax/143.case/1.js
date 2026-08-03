@@ -76,4 +76,4 @@ function ajax(options) {
 
 
 
-export default ajax
+// export default ajax
