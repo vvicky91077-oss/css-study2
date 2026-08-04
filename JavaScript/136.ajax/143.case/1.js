@@ -75,5 +75,25 @@ function ajax(options) {
 }
 
 
+//promise function
+
+function pajax (options){
+     return new Promise((resolve,reject)=>{
+       ajax({
+        ...options,
+        success(res){
+            resolve(res)
+        },
+        error(err){
+            reject(err)
+        }
+       })
+    })
+    
+}
 
 // export default ajax
+export {
+    ajax,
+    pajax
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //promise 函数
+
+    var q = new Promise(function(resolve,reject){
+        // suc()
+        // err("nnn")
+        setTimeout(()=>{
+            resolve(["1","mg","18"])
+            // reject("refuse ")
+        },2000)
+
+    }).then(function(res){
+        console.log("this is success function",res)
+    }).catch(function(errr){
+        console.log("this is error function",errr)
+
+    })
+</script>
+</html>

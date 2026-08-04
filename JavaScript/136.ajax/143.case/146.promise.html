@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script src="./1.js"></script>
+<script>
+    pajax({
+         url:"http://localhost:3000/news",
+         data:{
+            // author: "kerwin"
+            id: 2
+        }
+
+    }).then(res=>{
+       return pajax({
+            url:"http://localhost:3000/comments",
+            data:{
+                newsId: res[0].id
+            }
+       })   
+
+    }).then(res=>{
+        console.log(res)
+    }).catch(err=>{
+        console.log("error",err)
+    })
+    
+        
+</script>
+</html>

@@ -1,25 +1,43 @@
 {
   "list": [
     {
-      "text": "aaa",
-      "id": 1
-    },
-    {
       "text": "bbb",
       "id": 2
     },
     {
-      "text": "viki",
-      "id": 3
+      "text": "aaa",
+      "id": 4
     },
     {
-      "text": "new",
-      "id": 4
+      "text": "doomi",
+      "id": 5
     }
   ],
   "a": [
     "1",
     "2",
     "3"
+  ],
+
+  "looplist":[
+    {
+      "id":1,
+      "title":"looplist-1111111"
+    },
+    {
+      "id":2,
+      "title":"looplist-2222"
+    }
+  ],
+  "datalist":[
+    {
+      "id":1,
+      "title":"datalist-1111111"
+    },
+    {
+      "id":2,
+      "title":"datalist-2222"
+    }
   ]
+
 }
