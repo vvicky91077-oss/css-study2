@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
+html,
+body {
+    height: 100%;
+}
+
+ul li {
+    overflow: hidden;
+    height: 9.375rem;
+}
+
+ul li img {
+    float: left;
+    width: 5rem;
+}
+h4{
+    color:red
+}
+h5{
+    color:green
+}
