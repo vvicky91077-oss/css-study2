@@ -1,0 +1,46 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "bibi",
+      "password": "111"
+    },
+    {
+      "id": 2,
+      "name": "kyinwo",
+      "password": "222"
+    },
+    {
+      "name": "jimi",
+      "password": "8852",
+      "id": 3
+    },
+    {
+      "name": "roOT",
+      " hobby": " sing",
+      "id": 4
+    },
+    {
+      "nameee": "kiwi",
+      "password": "8852",
+      "id": 7
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

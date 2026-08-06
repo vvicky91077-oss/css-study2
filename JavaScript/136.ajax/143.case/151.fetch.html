@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="mytext" placeholder="请输入内容">
+    <button id="myadd">提交</button>
+    <ul class="list">
+
+    </ul>
+</body>
+<script type="module">
+    async function test() {
+        var author = "tiechui"
+        var tes = await fetch(`http://localhost:3000/news?author=${author}`).then(tes=>tes.json())
+        console.log(tes)
+
+        var tes1 = await fetch(`http://localhost:3000/comments?newsId=${tes[0].id}`).then(tes=>tes.json())
+        console.log(tes1)
+    }
+    test()
+</script>
+</html>

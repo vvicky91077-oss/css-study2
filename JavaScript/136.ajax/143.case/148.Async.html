@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+<script type="module">
+    async function test() {
+        
+
+
+    }
+        
+</script>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script src="./1.js"></script>
+<script>
+    pajax({
+         url:"http://localhost:3000/news",
+         data:{
+            // author: "kerwin"
+            id: 2
+        }
+
+    }).then(res=>{
+       return pajax({
+            url:"http://localhost:3000/comments",
+            data:{
+                newsId: res[0].id
+            }
+       })   
+
+    }).then(res=>{
+        console.log(res)
+    }).catch(err=>{
+        console.log("error",err)
+    })
+    
+        
+</script>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script type="module">
+    import {pajax} from './1.js'
+    console.log(1111)
+
+    //async await 只在他们自己父级内介生效
+    // async function test() {
+
+    //         //await 同步代码/promise对象
+    //         //  await console.log("222")
+    //         var res = await pajax({
+    //             url: "http://localhost:3000/news",
+    //             data: {
+    //                 author: "kerwin"
+    //             }
+    //         })/* .then(res=>{
+    //         console.log(res)
+    //     }).catch(errr=>{
+    //         console.log(errr)
+    //     }) */
+
+    //         //上面拿到结果后 再执行下面的
+    //         // console.log("333")
+
+    //         var res1 = await pajax({
+    //             url: "http://localhost:3000/comments",
+    //             data: {
+    //                 newsId: res[0].id
+    //             }
+    //         })
+    //         console.log(res1)
+    //         return res1
+    //     }
+
+    //     /* var r=test()
+    //     console.log(444,r) //r 是 pending状态  */
+
+    //     test().then(res => {
+    //         console.log("返回结果", res)
+    //     }).catch(er => {
+    //         console.log("error", er)
+    //     })
+    //     // test()
+    //     console.log(555)
+
+
+
+
+
+    async function test(){
+      try{
+        var res = await pajax ({
+            url: "http://localhost:3000/news",
+            data:{
+                author:"kerwin"
+            }
+        })
+
+        var res1= await pajax({
+            url: "http://localhost:3000/comments",
+            data:{
+                newsId: res[0].id
+            }
+        })
+        console.log("success",res1)
+         
+      }catch(err){
+        console.log("errrror",err)
+      }//捕获错误 系统不会崩掉，会继续执行下去
+        console.log("失败成功 最终还是死亡")
+    }
+    test()
+    
+  
+
+</script>
+
+</html>
