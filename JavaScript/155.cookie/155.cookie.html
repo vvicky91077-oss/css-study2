@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="addBtn">ADD</button>
+    <button id="getBtn">GET</button>
+    <button id="delBtn">DELETE</button>
+</body>
+<script>
+
+/* addBtn.onclick = function(){
+    // document.cookie ="username=viki;age=18"//一次只能加1个数据
+
+    //设置绝对路径才有权限查看用户信息
+    document.cookie ="username=kiwi;path=/JavaScript/155.cookie/permission" // 覆盖
+    document.cookie ="age=18"
+
+} */
+
+
+addBtn.onclick = function(){
+    document.cookie= "age=18"
+
+
+    //设置过期时间
+    var date = new Date()
+    // console.log(date)
+    date.setMinutes(date.getMinutes()+1)
+    document.cookie =
+     `username=kaaa;expires=${date.toUTCString()}`
+
+}
+
+
+//获取
+getBtn.onclick=function(){
+    // console.log(document.cookie)
+    console.log(getCookie("age"))
+}
+
+function getCookie (key){
+    var str = document.cookie
+    var arr= str.split(";")
+    
+    var obj={}
+    for(var i=0;i<arr.length;i++){
+        var subArr = arr[i].split("=")
+        console.log(subArr)
+        obj[subArr[0]]=subArr[1]
+
+    }
+    console.log(arr)
+    return obj[key]
+}
+
+
+//删除
+delBtn.onclick= function(){
+    var date = new Date()
+    // console.log(date)
+    date.setMinutes(date.getMinutes()-1)
+    document.cookie =
+     `username=jijiji;expires=${date.toUTCString()}`
+     document.cookie =
+     `age=22;expires=${date.toUTCString()}`
+}
+</script>
+</html>
