@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="getBtn">get</button>
+    <button id="postBtn">post</button>
+    <button id="putBtn">put</button>
+    <button id="deleteBtn">delete</button>
+    <button id="patchBtn">patch</button>
+</body>
+<script src="./1.js"></script>
+<script>
+    getBtn.onclick = function () {
+        var name = "kyinwo"
+        fetch (`http://localhost:3000/users`)
+        .then(result=> {
+            console.log(result)
+            if(result.ok){
+               return result.json()
+            }else{
+                //拒绝承诺
+                return Promise.reject({
+                    status: result.status,
+                    statusText: result.statusText
+                })
+                
+            }
+            // result.text() //字符串格式
+            // console.log(result.json()) //pending状态
+        }).then(res=>console.log("sssss",res)
+        ).catch(err=>{
+            console.log("erronr",err)
+        })
+    }
+
+    postBtn.onclick = function () {
+        
+        fetch("http://localhost:3000/users",{
+            method:"POST",
+            headers:{
+                "content-type":"application/json"
+            },
+            body:JSON.stringify({
+                nameee:"kiwi",
+                password:"8852"
+            })
+            /* headers:{
+                "content-type":"application/x-www-form-urlencoded"
+            },
+            body:"nameee=jimi&password=8852" */
+        })
+        .then (res=> res.json())
+        .then(res=>{console.log(res)})
+        
+        
+    }
+
+    putBtn.onclick = function () {
+        
+
+        fetch ("http://localhost:3000/users/4",{
+            method:"PUT",
+            headers:{
+                "content-type":"application/x-www-form-urlencoded"
+            },
+            body:"name=robot& hobby= sing"
+        }).then (res=> res.json())
+        .then(res=>{console.log(res)})
+        
+    }
+
+
+
+
+
+    deleteBtn.onclick = function () {
+        
+        fetch ("http://localhost:3000/users/6",{
+            method:"DELETE",
+            
+        }).then (res=> res.json())
+        .then(res=>{console.log(res)})
+        
+    }
+
+
+
+
+    patchBtn.onclick = function () {
+         fetch ("http://localhost:3000/users/4",{
+            method:"PATCH",
+            headers:{
+                "content-type":"application/x-www-form-urlencoded"
+            },
+            body:"name=roOT"
+        }).then (res=> res.json())
+        .then(res=>{console.log(res)})
+        
+    }
+</script>
+<script>
+
+
+
+</script>
+
+</html>
+
+</script>
+
+</html>

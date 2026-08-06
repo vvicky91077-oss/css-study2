@@ -5,12 +5,8 @@
       "id": 2
     },
     {
-      "text": "aaa",
-      "id": 4
-    },
-    {
-      "text": "doomi",
-      "id": 5
+      "text": "啊啊啊",
+      "id": 3
     }
   ],
   "a": [
@@ -18,26 +14,24 @@
     "2",
     "3"
   ],
-
-  "looplist":[
+  "looplist": [
     {
-      "id":1,
-      "title":"looplist-1111111"
+      "id": 1,
+      "title": "looplist-1111111"
     },
     {
-      "id":2,
-      "title":"looplist-2222"
+      "id": 2,
+      "title": "looplist-2222"
     }
   ],
-  "datalist":[
+  "datalist": [
     {
-      "id":1,
-      "title":"datalist-1111111"
+      "id": 1,
+      "title": "datalist-1111111"
     },
     {
-      "id":2,
-      "title":"datalist-2222"
+      "id": 2,
+      "title": "datalist-2222"
     }
   ]
-
 }
