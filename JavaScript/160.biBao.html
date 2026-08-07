@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<!-- <script>
+    //函数有返回值，而且返回复杂数据类型，而且要赋值给外面的变量
+
+
+    function test(){
+        var name = "viki"
+        console.log(name)
+        var obj={
+            a:1,
+            b:2
+        }
+        return obj
+    }
+
+    var obj1= test() //viki执行后就销毁了
+    console.log(obj1)  //obj被赋值调用没被销毁， name viki已经被销毁了
+    var obj2= test() //这2个不等于，是不同的2个空间。
+
+</script> -->
+<!-- <script>
+            /*闭包:
+        函数内部返回一个函数,被外界所引用。
+        这个内部函数就不会被销毁回收。
+        内部函数所用到的外部函数的变量也不会被销毁。*/
+
+      function outer (){
+        var name= "oiwi"
+        var age=18 //没有利用 执行后就销毁
+        return function(){
+            return name +" 111"
+        }
+      }  
+
+      var func= outer()
+      console.log(func())//小括号执行
+      func= null //赋🈳之后 后面无法再执行，已经不存在了
+      console.log(func()) //报错
+
+      /* 优点:让临时变量永驻内存
+      缺点:内存泄漏 */
+</script> -->
+
+<script>
+    function FetchContainer (url){
+        return function(path){
+            return fetch(url+path)
+        }
+    }
+    //让临时变量永驻内存 url 下面使用了所以无法销毁
+    //固定域名路径
+    var fetcha= FetchContainer("http://www.a.com") 
+
+    fetcha("/aaa").then(res=>res.json()).then(res=>console.log(res))
+    fetcha("/bbb").then(res=>res.json()).then(res=>console.log(res))
+    fetcha("/ccc").then(res=>res.json()).then(res=>console.log(res))
+    fetcha("/ddd").then(res=>res.json()).then(res=>console.log(res))
+    //手动销毁
+    fetcha= null
+
+
+    var fetcha= FetchContainer("http://www.baidu.com") 
+
+    fetcha("/aaa").then(res=>res.json()).then(res=>console.log(res))
+    fetcha("/bbb").then(res=>res.json()).then(res=>console.log(res))
+    fetcha("/ccc").then(res=>res.json()).then(res=>console.log(res))
+    fetcha("/ddd").then(res=>res.json()).then(res=>console.log(res))
+</script>
+</html>

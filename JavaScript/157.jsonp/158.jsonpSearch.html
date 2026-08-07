@@ -12,6 +12,10 @@
 
         mysearch.oninput = function(e){
             console.log(e.target.value)
+            if(!e.target.value){
+                list.innerHTML=""
+                return
+            }
 
             var oscript = document.createElement("script")
             oscript.src = `https://www.baidu.com/sugrec?pre=1&p=3&ie=utf-8&json=1&prod=pc&from=pc_web&imod=2&sugsid=63141,67862,71506,71688,71970,72030,71946,71931,72063,72073,72068,72092,72120,72344,72372,72405,72356,72417,72481,72498,72496,72500,72510,72516,72525,72472,72543,72556,72564,72616,72602,72594,72631,72660,72653,72655,72662,72665,72682,72693,72757,72752,72711,72724,72777,72707,72815,72793,72848,72819,72843,72890,72904&wd=${e.target.value}&his=%5B%7B%22time%22%3A1781257074%2C%22kw%22%3A%22%E5%89%8D%E7%AB%AF%20%E9%98%AE%E4%B8%80%E5%B3%B0%22%2C%22fq%22%3A2%7D%5D&req=2&bs=a&pbs=a&usegosug=1&csor=0&sugmode=2&hot_launch=0&cb=test&=1786023090841`
