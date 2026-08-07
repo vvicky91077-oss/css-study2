@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="mybtn">click</button>
+</body>
+<script>
+    //触碰 CORS 协议 不符合同源策略
+    /* fetch("http://www.baidu.com").then(res=>res.json())
+    .then(res=> console.log(res)) */
+</script>
+<script>
+    function test(obj) {
+        console.log(obj)
+    }
+
+    // test({"name":"vivo"})
+
+    mybtn.onclick = function () {
+        /* 
+                var oscript = document.createElement("script")
+                oscript.src= "1.txt"
+                document.body.appendChild(oscript)
+        
+        
+         */
+
+        var oscript = document.createElement("script")
+        //返回的名字跟 函数要对上 不然没法调用执行
+        oscript.src = `https://www.runoob.com/try/ajax/jsonp.php?jsoncallback=test`
+        document.body.appendChild(oscript)
+
+        oscript.onload = function () {
+            oscript.remove() //打扫页面
+        }
+    }
+
+
+</script>
+<!-- <script src="./1.txt">//外部请求 TXT文档 执行
+
+    // test({"name":"vivo"}) //夸了script也能执行
+
+</script> -->
+
+</html>
