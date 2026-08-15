@@ -64,6 +64,26 @@ https://juejin.cn/post/6844903618764603399?searchId=2026072510405761F138C34E3579
  Axios 的底层原理核心在于环境适配器、Promise 异步管理以及拦截器链式调用。它根据运行环境自动切换请求方式，对外提供统一的 Promise 接口，并在发送前后通过队列处理数据。核心工作机制环境适配器：在浏览器中自动使用原生的 XMLHttpRequest 对象发送请求。在 Node.js 环境中自动切换使用原生的 http 或 https 模块。Promise 封装：所有请求最终都返回一个 Promise 对象，方便使用 .then() 和 .catch() 或 async/await 处理异步结果。拦截器（Interceptors）：采用类似链表或数组队列的 chain 机制。请求拦截器按照“后进先出”的顺序执行，响应拦截器按照“先进先出”的顺序执行，在请求发出前和响应到达后对数据进行加工。转换与取消：自动对请求数据和响应数据进行 JSON 转换。通过 CancelToken（或现代的 AbortController）实现请求的中断机制。
 
 # this 指向
+普通函数：看“谁调用”
+箭头函数：看“外层是谁”
+
+普通函数直接调用 → 非严格模式 this 通常是 window；严格模式是 undefined。
+箭头函数没有自己的 this ，只能去 其自身层找 ，找到的等同于继承。
+普通函数嵌套 另一个普通函数，最里面的this 不会自动继承外面的this，也不可以往外找，要么传 this 进来，要么改成箭头⬆️函数
+
+
+改变this指向
+call：指定 this 指向为第一个传参 ，然后立刻执行， call：散装参数
+apply：数组参数，其他跟call一样。
+bind: 先绑定，之后再执行。
+🟥 call：改 this，马上干
+🟨 apply：改 this，马上干，但是参数装数组
+🟩 bind：改 this，先不干，返回一个新函数
+
+
+new 做的事情之一，就是创建一个新对象，然后让构造函数里面的 this 指向这个新对象。 还会把新对象和构造函数的 prototype 建立关系。
+
+
 
 https://juejin.cn/post/6946021671656488991?searchId=20260725104712DE671DB9DBBFE93B07AD
 
