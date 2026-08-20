@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li{
+            display: flex;
+            justify-content: space-around;
+            padding: 10px;
+        }
+        li img{
+            width: 100px;
+        }
+    </style>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="box">
+        全选<input type="checkbox" v-model="isAll" @change="handleCheckAll">
+        <ul>
+            <li v-for="(item,index) in datalist" :key="item.id">
+                <input type="checkbox" v-model="checkList" :value="item" @change="handleItemChecked">
+                <img :src="item.pic">
+                <div>
+                    <div>{{item.name}}</div>
+                    <div style="font-weight: bold; color: red;">💰：{{item.price}}￥</div>
+                </div>
+                <div>
+                    <button @click="item.number--" :disabled="item.number === 1">-</button>
+                    <span style="margin: 0 5px"> {{ item.number }} </span>
+                    <button @click="item.number++" :disabled="item.number === item.limit">+</button>
+                </div>
+                <div>
+                    <button @click="handleDelete(index,item.id)">delete</button>
+                </div>
+            </li>
+        </ul>
+
+        <div>总金额：{{ sum() }}</div>
+
+        {{checkList}}
+    </div>
+</body>
+<script>
+
+    var obj={
+
+        data(){
+            return{
+                isAll:false,
+                checkList:[],
+                datalist: [
+                    {
+                        name: "鳗鱼饭",
+                        price: 10,
+                        number: 1,
+                        id: 1,
+                        limit: 3,
+                        pic: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShqhyAWbU0g6X7uXkAYd6RJFJKwy4SZH5xY90fXAQRCQ&s=10"
+                    },
+                    {
+                        name: "牛排",
+                        price: 20,
+                        number: 2,
+                        id: 2,
+                        limit: 5,
+                        pic: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwKo2oPKpy9g8wYnRaeHTR8eL6pan2q0xo6ONznQIJEw&s=10"
+                    },
+                    {
+                        name: "火锅",
+                        price: 30,
+                        number: 3,
+                        id: 3,
+                        limit: 4,
+                        pic: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzkNA9NI3Pc-y-MDnnsRBvqm73UqbvZjm1my1IlS91Ug&s=10"
+                    },
+                    {
+                        name: "烤红薯",
+                        price: 5,
+                        number: 4,
+                        id: 4,
+                        limit: 10,
+                        pic: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkkrQH5SdvjG88BJfXnFplmfESwEETZJGKE7ku8Q2o-Q&s=10"
+                    }
+                ]
+            }
+        },
+        methods:{
+            sum(){
+                var total=0
+                //checklist数组的 每一项的 价格*数量
+                this.checkList.forEach(item=>{
+                    total+=item.price*item.number
+                })
+                return total
+            },
+            handleDelete(index,id){
+                this.datalist.splice(index,1)
+                // this.checkList.splice(id,1)
+                // console.log(id);
+
+                this.checkList = this.checkList.filter(item=> item.id !==id)
+
+
+                //同步状态
+                this.handleItemChecked()
+                
+            },
+            handleCheckAll(){
+                if (this.isAll){
+                    this.checkList = this.datalist
+                }
+                else{
+                    this.checkList=[]
+                }
+            },
+            handleItemChecked(){
+                if(this.checkList.length === this.datalist.length){
+                    this.isAll= true
+                }
+                else{
+                    this.isAll=false
+                }
+                
+            }
+        }
+    }
+
+
+     var vm= Vue.createApp (obj).mount("#box")
+
+
+</script>
+</html>
