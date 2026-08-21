@@ -108,7 +108,7 @@ https://www.arryblog.com/vip/es6/iterator-mode.html 这篇文章
 
 # 1. 父组件传 子组件 ,子组件传父组件, ref 
 父传子 --> 父组件向 子组件传值，主要使用 props。父组件通过 属性 把数据传给子组件，子组件通过 props 接收。
-子传父 --> 子组件传给父组件，一般使用 $emit 触发自定义事件 并传递数据。父组件通过 @事件名="方法" 监听这个事件，再通过方法的参数接收子组件传过来的数据。
+子传父 --> 子组件传给父组件，一般使用 $emit 触发自定义事件 并传递数据。父组件通过 @事件名="方法" 监听这个事件，再通过方法(methods)的参数接收子组件传过来的数据。
 ref --> ref 是给 DOM 元素或子组件添加引用标识，$refs 是通过这个标识获取对应的 DOM 元素或子组件实例。Vue 2 中一般通过 this.$refs.xxx 来访问。
 
 
@@ -131,31 +131,42 @@ Vue 提倡 “谁拥有数据，谁负责修改数据”。（Data owns change�
 
 
 # 3. $set 和 this.$set的区别 ,   $set的作用是什么?
-$set 的作用：让 Vue 2 新增的对象属性或修改的数组下标具有响应式。
-this.$set 是 Vue 2 提供的方法，用来给对象添加新的响应式属性，或者修改数组指定下标的数据。
-因为 Vue 2 的响应式机制是通过 Object.defineProperty 实现的，所以对于一开始没有定义的对象属性，直接使用 . 添加，Vue 可能无法检测到数据变化。
-使用 $set 可以解决这个问题，让新增的属性具有响应式 并触发视图刷新🔄。
+$set 是 Vue 2 提供的响应式更新方法，主要用于解决新增对象属性和 修改数组下标时，Vue 2 无法检测到数据变化的问题。
 
-Vue 2 对新增对象属性和数组下标的变化检测存在一些限制，所以需要 $set；Vue 3 使用 Proxy 后，这些问题得到了改善。
+因为 Vue 2 使用 Object.defineProperty 实现响应式，只能监听已经存在的属性，所以需要通过 $set 手动把新增属性加入响应式系统。
+
+在组件中一般使用 this.$set，它和 $set 的作用本质上是一样的
+本质上是让 Vue 2 能够对这个新增属性进行响应式处理，并触发相关依赖更新。
+
+
+Vue 3 使用 Proxy 后，这些问题得到了改善。
 
 
 # 4. vue  的响应式原理是什么
-Vue 的响应式原理主要是通过数据劫持/代理 + 依赖收集 + 发布通知来实现的。当数据发生变化时，Vue 能够检测到数据变化，并通知相关组件重新渲染。
 
-数据劫持 + 依赖收集 + 发布通知 === 数据变化 → 检测到变化 → 通知 → 视图更新
+Vue 的响应式原理 主要是通过 数据劫持或代理来 监听数据变化，在数据被访问时进行 依赖收集，数据发生变化时 通知相关依赖 进行更新，从而实现数据变化自动更新视图。Vue 2 主要使用 Object.defineProperty
+
+Vue2------> Object.defineProperty → getter/setter → 依赖收集 → Watcher → 派发更新 → 视图更新
 
 
 
 
 # 5. vue2的响应式原理是什么? 发布订阅是什么?
-Vue 2 的响应式原理主要是通过 Object.defineProperty 对 data 中的数据进行劫持，在数据读取的时候进行依赖收集，在数据发生变化的时候通知相关的 Watcher，Watcher 再触发视图更新。这个过程中使用了发布订阅的思想。
-data →Object.defineProperty →数据劫持 → 依赖收集 →Watcher →数据发生变化 →通知 Watcher →更新视图
+Vue 2 的响应式原理主要是通过 Object.defineProperty 对数据进行劫持，为数据的每个属性添加 getter 和 setter。
+
+当组件第一次渲染时，访问响应式数据会触发 getter，Vue 会进行依赖收集，把当前组件对应的 Watcher 收集起来。
+
+当数据发生变化时，会触发 setter，setter 会通知之前收集的 Watcher，Watcher 再进行更新，最终触发组件重新渲染。
+
+所以 Vue 2 的响应式流程可以概括为：
+
+Object.defineProperty → 数据劫持 → getter 依赖收集 → setter 派发通知 → Watcher 更新 → 视图更新。
 
 发布-订阅就是一个对象发生变化的时候，通知所有订阅了这个变化的对象。
 
 
 
-
+因为 Vue 2 使用 Object.defineProperty，初始化时只能劫持已经存在的属性，所以后面直接新增对象属性，或者直接通过数组下标修改数据，可能无法被检测到，因此 Vue 2 提供了 $set 来解决这个问题。
 
 # 6. new一个实例的时候 ,const subject = new Subject(); 这个new干了什么?
 new 首先创建一个新的空对象，然后把这个对象的原型指向构造函数的 prototype，再把构造函数内部的this指向这个新对象并执行构造函数，最后返回这个新对象。
@@ -184,7 +195,8 @@ console.log(keys);
 
 
 
-# 8. Object.defineProperty() 是 JavaScript 的一个内置方法，可以定义或修改对象的属性，并且可以通过 get 和 set 控制属性的读取和修改。Vue 2 就利用它来实现数据劫持和响应式。
+# 8. Object.defineProperty() 
+是 JavaScript 的一个内置方法，可以定义或修改对象的属性，并且可以通过 get 和 set 控制属性的读取和修改。Vue 2 就利用它来实现数据劫持和响应式。
 
 const user = {};
 user.name = '张三';
@@ -203,7 +215,7 @@ console.log(user.name);// 张三
 # 9. Vue生命周期
                创建
                   ↓
-            beforeCreate
+             beforeCreate
                   ↓
                created
                   ↓
@@ -257,6 +269,7 @@ Vue 提供了一系列的生命周期钩子函数（Hooks），允许我们在�
 
 * 在哪个钩子发请求最好？
 通常在 created 中。因为越早发请求，数据返回越快，能减少页面白屏时间。如果业务需要依赖真实 DOM，才放进 mounted。
+
 * 父子组件的生命周期执行顺序？
 * 挂载时：父 beforeCreate -> 父 created -> 父 beforeMount -> 子 beforeCreate -> 子 created -> 子 beforeMount -> 子 mounted -> 父 mounted。（子组件先挂载完毕，父组件才算挂载完毕）
    * 更新时：父 beforeUpdate -> 子 beforeUpdate -> 子 updated -> 父 updated。
