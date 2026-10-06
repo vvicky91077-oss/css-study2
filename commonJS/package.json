@@ -1,0 +1,12 @@
+{
+  "name": "commonjs-vs-esm-demo",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "cjs": "node cjs/main.cjs",
+    "esm": "node esm/main.mjs",
+    "esm-cjs": "node interop/esm-import-cjs.mjs",
+    "cjs-esm": "node interop/cjs-import-esm.cjs",
+    "all": "npm run cjs && npm run esm && npm run esm-cjs && npm run cjs-esm"
+  }
+}
