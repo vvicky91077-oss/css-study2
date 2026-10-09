@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>To Do List</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 32px 16px;
+      background: #f3f4f8;
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+      color: #1f2333;
+    }
+
+    .app {
+      max-width: 520px;
+      margin: 0 auto;
+      padding: 24px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    h1 {
+      font-size: 22px;
+      margin-bottom: 16px;
+    }
+
+    /* 输入区 */
+    .add-form {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .add-form input {
+      flex: 1;
+      min-width: 0;
+      height: 40px;
+      padding: 0 12px;
+      border: 1px solid #d7dae3;
+      border-radius: 8px;
+      font-size: 14px;
+      outline: none;
+    }
+
+    .add-form input:focus {
+      border-color: #6644fe;
+    }
+
+    .add-form button {
+      height: 40px;
+      padding: 0 18px;
+      border: 0;
+      border-radius: 8px;
+      background: #6644fe;
+      color: #fff;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .add-form button:hover {
+      background: #5535e8;
+    }
+
+    /* 分组 */
+    .section+.section {
+      margin-top: 24px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .count {
+      min-width: 22px;
+      padding: 0 6px;
+      border-radius: 11px;
+      background: #eceaff;
+      color: #6644fe;
+      font-size: 12px;
+      line-height: 22px;
+      text-align: center;
+    }
+
+    .clear-btn {
+      border: 0;
+      background: none;
+      color: #9aa0b1;
+      font-size: 12px;
+      cursor: pointer;
+    }
+
+    .clear-btn:hover {
+      color: #e5484d;
+    }
+
+    /* 列表 */
+    .list {
+      list-style: none;
+    }
+
+    .item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 4px;
+      border-bottom: 1px solid #f0f1f5;
+    }
+
+    .item input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      accent-color: #6644fe;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .item .text {
+      flex: 1;
+      font-size: 14px;
+      word-break: break-all;
+    }
+
+    .item.done .text {
+      color: #9aa0b1;
+      text-decoration: line-through;
+    }
+
+    .item .time {
+      color: #b4b9c6;
+      font-size: 12px;
+      flex-shrink: 0;
+    }
+
+    .item .del-btn {
+      border: 0;
+      background: none;
+      color: #c4c8d3;
+      font-size: 18px;
+      line-height: 1;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .item .del-btn:hover {
+      color: #e5484d;
+    }
+
+    .empty {
+      padding: 16px 0;
+      color: #b4b9c6;
+      font-size: 13px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="app">
+    <h1>📝 To Do List</h1>
+
+    <!-- 新增事项 -->
+    <form class="add-form" id="addForm">
+      <input id="todoInput" type="text" placeholder="输入待做事项，回车添加" maxlength="100" autocomplete="off" />
+      <button type="submit">添加</button>
+    </form>
+
+    <!-- 待做事项 -->
+    <div class="section">
+      <div class="section-title">
+        <span>待做事项 <span class="count" id="todoCount">0</span></span>
+      </div>
+      <ul class="list" id="todoList"></ul>
+    </div>
+
+    <!-- 已完成事项 -->
+    <div class="section">
+      <div class="section-title">
+        <span>已完成事项 <span class="count" id="doneCount">0</span></span>
+        <button class="clear-btn" id="clearDone" type="button">清空已完成</button>
+      </div>
+      <ul class="list" id="doneList"></ul>
+    </div>
+  </div>
+
+  <script>
+    const STORAGE_KEY = 'todo-list-demo'
+
+    // 数据结构：{ id, text, done, createdAt }
+    let todos = load()
+
+    const $form = document.getElementById('addForm')
+    const $input = document.getElementById('todoInput')
+    const $todoList = document.getElementById('todoList')
+    const $doneList = document.getElementById('doneList')
+    const $todoCount = document.getElementById('todoCount')
+    const $doneCount = document.getElementById('doneCount')
+    const $clearDone = document.getElementById('clearDone')
+
+    // ---- 本地存储 ----
+    function load() {
+      try {
+        return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []
+      } catch (e) {
+        return []
+      }
+    }
+
+    function save() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(todos))
+      } catch (e) {
+        // 隐私模式等情况下存储不可用，忽略
+      }
+    }
+
+    // ---- 渲染 ----
+    function formatTime(ts) {
+      const d = new Date(ts)
+      const pad = (n) => String(n).padStart(2, '0')
+      return `${pad(d.getMonth() + 1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}`
+    }
+
+    function createItem(todo) {
+      const li = document.createElement('li')
+      li.className = 'item' + (todo.done ? ' done' : '')
+      li.dataset.id = todo.id
+
+      const checkbox = document.createElement('input')
+      checkbox.type = 'checkbox'
+      checkbox.checked = todo.done
+      checkbox.dataset.action = 'toggle'
+
+      // 用 textContent 而不是 innerHTML，防止输入内容被当成 HTML 执行
+      const text = document.createElement('span')
+      text.className = 'text'
+      text.textContent = todo.text
+
+      const time = document.createElement('span')
+      time.className = 'time'
+      time.textContent = formatTime(todo.createdAt)
+
+      const del = document.createElement('button')
+      del.className = 'del-btn'
+      del.type = 'button'
+      del.title = '删除'
+      del.textContent = '×'
+      del.dataset.action = 'delete'
+
+      li.append(checkbox, text, time, del)
+      return li
+    }
+
+    function renderList($list, items, emptyText) {
+      $list.innerHTML = ''
+      if (!items.length) {
+        const empty = document.createElement('li')
+        empty.className = 'empty'
+        empty.textContent = emptyText
+        $list.appendChild(empty)
+        return
+      }
+      items.forEach((todo) => $list.appendChild(createItem(todo)))
+    }
+
+    function render() {
+      const pending = todos.filter((t) => !t.done)
+      const done = todos.filter((t) => t.done)
+
+      renderList($todoList, pending, '暂无待做事项 🎉')
+      renderList($doneList, done, '还没有完成的事项')
+
+      $todoCount.textContent = pending.length
+      $doneCount.textContent = done.length
+      $clearDone.style.visibility = done.length ? 'visible' : 'hidden'
+    }
+
+    // ---- 操作 ----
+    function addTodo(text) {
+      todos.unshift({
+        id: Date.now() + Math.random().toString(16).slice(2),
+        text,
+        done: false,
+        createdAt: Date.now(),
+      })
+      save()
+      render()
+    }
+
+    function toggleTodo(id) {
+      const todo = todos.find((t) => t.id === id)
+      if (!todo) return
+      todo.done = !todo.done
+      save()
+      render()
+    }
+
+    function deleteTodo(id) {
+      todos = todos.filter((t) => t.id !== id)
+      save()
+      render()
+    }
+
+    function clearDone() {
+      todos = todos.filter((t) => !t.done)
+      save()
+      render()
+    }
+
+    // ---- 事件 ----
+    $form.addEventListener('submit', (e) => {
+      e.preventDefault()
+      const text = $input.value.trim()
+      if (!text) return
+      addTodo(text)
+      $input.value = ''
+      $input.focus()
+    })
+
+    // 事件委托：两个列表共用一套处理
+    function onListClick(e) {
+      const action = e.target.dataset.action
+      if (!action) return
+      const id = e.target.closest('.item').dataset.id
+      if (action === 'toggle') toggleTodo(id)
+      if (action === 'delete') deleteTodo(id)
+    }
+
+    $todoList.addEventListener('click', onListClick)
+    $doneList.addEventListener('click', onListClick)
+    $clearDone.addEventListener('click', clearDone)
+
+    render()
+  </script>
+</body>
+
+</html>
