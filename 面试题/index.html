@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    (function () {
+        try {
+            console.log('题2:', b) // ?
+            const b = 2
+        } catch (e) {
+            console.log('题2:', e.name, '-', e.message)
+        }
+    })()
+
+
+    {
+        let level = 1;
+        console.log('2222:', level) // ?
+
+    }
+
+    function test() {
+        let level = 2;
+        console.log('2888:', level) // ?
+    }
+    test()
+    // console.log('题3:', level) // ?
+
+
+
+
+    let level = 3;
+    level = 5;
+    const VICKY = 19952626;
+    // VICKY = 8888;
+    const VICKYMSG = {
+        name: 'vicky',
+        age: 18
+    }
+    VICKYMSG.age = 20
+
+
+
+    console.log("............................")
+
+    const fruits = ['apple', 'banana', 'orange']
+    fruits.push('pear')
+    fruits.note = '水果'
+
+    for (const key in fruits) {
+        console.log('key:', key, 'value:', fruits[key])
+
+    }
+    for (const fruit of fruits) {
+        console.log('fruit:', fruit)
+    }
+    console.log("............................")
+
+    const person = {
+        name: 'vicky',
+        age: 18
+    }
+    for (const key in person) {
+        console.log('key:', key, 'value:', person[key])
+    }
+    for (const value of Object.values(person)) {
+        console.log('value:', value)
+    }
+    // for (const value of person) {
+    //     console.log(value)
+    // } // 报错：person is not iterable
+</script>
+
+<body>
+
+</body>
+
+</html>

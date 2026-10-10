@@ -1,3 +1,6 @@
+console.log('math.cjs 模块被加载了'); 
+
+
 // ===== CommonJS 导出方式 1：exports.xxx（逐个挂载属性）=====
 exports.add = (a, b) => a + b;
 exports.sub = (a, b) => a - b;
