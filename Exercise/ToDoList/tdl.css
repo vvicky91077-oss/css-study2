@@ -46,7 +46,7 @@ h1 {
 }
 
 .add-form input:focus {
-    border-color: blue;
+    border-color: rgb(40, 1, 213);
 }
 
 .add-form button {
@@ -80,8 +80,8 @@ h1 {
 
 .count {
     min-width: 22px;
-    padding: 0 6px;
-    border-radius: 25px;
+    padding: 0 8px;
+    border-radius: 40px;
     background: #eceaff;
     color: #6644fe;
     font-size: 12px;
@@ -123,17 +123,25 @@ h1 {
     accent-color: #6644fc;
     cursor: pointer;
     flex-shrink: 0;
+    /* flex 容器空间不够时，这个元素是否允许被压缩。 */
 }
 
 .item .text {
     flex: 1;
     font-size: 14px;
     word-break: break-all;
+    /* 一行放不下时，允许在任意字符之间断开，把剩余内容放到下一行。 */
 }
 
 .item.done .text {
-    color: rgb(17, 4, 4);
+    font-size: 10px;
+    color: grey;
     text-decoration: line-through;
+}
+
+.item.done .time {
+    font-size: 10px;
+
 }
 
 .item .time {
@@ -143,13 +151,15 @@ h1 {
 }
 
 .item .del-btn {
+    /* 浏览器默认会给 <button> 显示边框,去掉边框 */
     border: 0;
     font-size: 18px;
     background: none;
     color: grey;
-    line-height: 1;
     cursor: pointer;
     flex-shrink: 0;
+    line-height: 1;
+    /* line-height: 1 都表示行高是自身字号的 1 倍，不需要父级先设置高度。 */
 }
 
 .item .del-btn:hover {
