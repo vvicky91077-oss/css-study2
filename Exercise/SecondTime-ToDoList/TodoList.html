@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+</head>
+<link rel="stylesheet" href="./style.css">
+
+<body>
+    <div class="box">
+        <h1>🍄To Do List</h1>
+        <div>
+            <form class="formStyle" id="formId">
+                <input type="text" class="inputStyle" id="inputId" autocomplete="off">
+                <button type="submit">ADD</button>
+            </form>
+        </div>
+
+        <div class="title">
+            <div class="titleStyle">
+                <span>
+                    To-Do items
+                    <span class="countStyle" id="todoCount">
+                        0
+                    </span>
+                </span>
+            </div>
+            <ul class="listStyle" id="listId"></ul>
+        </div>
+        <div class="title">
+            <div class="titleStyle">
+                <span class="tdStyle">
+                    Completed items
+                    <span class="countStyle" id="doneCount">
+                        0
+                    </span>
+                </span>
+                <button class="clearStyle" id="clearId" type="button">Clear items</button>
+            </div>
+            <ul class="listStyle" id="donelistId"></ul>
+        </div>
+    </div>
+
+
+
+
+
+    <script src="./logic.js"></script>
+
+</body>
+
+</html>
