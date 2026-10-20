@@ -1,5 +1,6 @@
 // ===== CommonJS 引入：require =====
 const math = require('./math.cjs');            // 整体引入
+const a = require('./math.cjs');            // 整体引入
 const { User, VERSION } = require('./user.cjs'); // 解构引入
 const counter = require('./counter.cjs');
 

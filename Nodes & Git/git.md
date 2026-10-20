@@ -29,3 +29,7 @@ git merge 合并分支得名字     git merge   name
 css:cssCode 
 js：jsCode
 main:main
+
+
+git  add . 保存所有文件的变更
+git commmit -b '尝试使用commit' 

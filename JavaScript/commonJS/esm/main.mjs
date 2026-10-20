@@ -21,3 +21,5 @@ console.log('Lib keys:', Object.keys(Lib));
 // 动态引入：import() 返回 Promise，可按需加载
 const { default: U } = await import('./user.mjs');
 console.log('动态 import():', new U('Lazy').hello());
+
+// count = 100; // ❌ 错误示范：ESM 的命名导出是只读的，不能直接赋值
