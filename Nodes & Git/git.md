@@ -36,10 +36,22 @@ git commmit -b '尝试使用commit'
 
 
 
-
-链接远程仓库
-git init	初始化本地仓库
-git remote add origin 仓库地址	连接远程仓库
 git remote -v	查看远程仓库地址
-git push	上传代码
-git pull	拉取远程代码
+
+
+--------------------------------------------------------------
+…or create a new repository on the command line
+echo "# VUE--2" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/vvicky91077-oss/VUE--2.git
+git push -u origin main
+
+--------------------------------------------------------------------------------
+
+…or push an existing repository from the command line
+git remote add origin https://github.com/vvicky91077-oss/VUE--2.git
+git branch -M main
+git push -u origin main
