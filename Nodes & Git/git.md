@@ -33,3 +33,13 @@ main:main
 
 git  add . 保存所有文件的变更
 git commmit -b '尝试使用commit' 
+
+
+
+
+链接远程仓库
+git init	初始化本地仓库
+git remote add origin 仓库地址	连接远程仓库
+git remote -v	查看远程仓库地址
+git push	上传代码
+git pull	拉取远程代码
